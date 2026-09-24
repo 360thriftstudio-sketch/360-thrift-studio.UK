@@ -19,8 +19,12 @@ const marker = Permanent_Marker({ weight: '400', subsets: ['latin'], variable: '
 
 const siteUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
 
+const isPreview = process.env.NEXT_PUBLIC_PREVIEW_MODE === 'true'
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  // Preview deployments must never be indexed.
+  robots: isPreview ? { index: false, follow: false } : undefined,
   title: {
     default: '360° Thrift Studio — Vintage · Premium · Wholesale',
     template: '%s — 360° Thrift Studio',
@@ -58,6 +62,11 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
           }}
         >
           <SkipLinks />
+          {isPreview ? (
+            <p className="bg-brand-blue px-4 py-1.5 text-center text-xs font-semibold text-white">
+              Preview site — DEMO lots and placeholder prices. Not open for orders yet.
+            </p>
+          ) : null}
           {nav.announcement ? <AnnouncementBar {...nav.announcement} /> : null}
           <Header nav={nav} loggedIn={viewer.loggedIn} />
           <main id="main" tabIndex={-1} className="outline-none">
