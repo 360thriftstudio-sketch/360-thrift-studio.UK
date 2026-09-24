@@ -18,10 +18,15 @@ const databaseUrl = process.env.DATABASE_URL || ''
 /**
  * Postgres in production (schema via migrations in src/migrations).
  * A `file:` DATABASE_URL switches to SQLite — used for zero-setup preview
- * deploys; the schema is pushed by `pnpm seed` and the file is disposable.
+ * deploys. Its schema has its own migrations (src/migrations-sqlite); the
+ * file is created, migrated and seeded during `pnpm build`.
  */
 const db = databaseUrl.startsWith('file:')
-  ? sqliteAdapter({ client: { url: databaseUrl }, push: true })
+  ? sqliteAdapter({
+      client: { url: databaseUrl },
+      push: false,
+      migrationDir: path.resolve(dirname, 'migrations-sqlite'),
+    })
   : postgresAdapter({
       pool: { connectionString: databaseUrl },
       // Schema changes ship as migrations: `pnpm migrate:create` after editing

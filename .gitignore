@@ -55,3 +55,4 @@ node_modules/
 
 # SQLite preview database
 /preview.db*
+/.preview-db-ready

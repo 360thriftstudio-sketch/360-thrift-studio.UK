@@ -5,7 +5,7 @@
   "description": "360 Thrift Studio UK \u2014 B2B wholesale catalogue with a Request for Quote basket",
   "type": "module",
   "scripts": {
-    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "build": "node scripts/prepare-preview-db.mjs && cross-env NODE_OPTIONS=--no-deprecation next build",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "start": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=320\" VIPS_CONCURRENCY=1 next start",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation eslint .",

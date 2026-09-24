@@ -1,14 +1,18 @@
-// Runs Postgres migrations. SQLite preview databases (DATABASE_URL=file:…)
-// get their schema from `pnpm seed` instead, so migrations are skipped.
+// `pnpm migrate`: runs Payload migrations for the configured database.
+// SQLite preview databases are migrated + seeded during `pnpm build`
+// (scripts/prepare-preview-db.mjs); at start-up that work is skipped.
 import 'dotenv/config'
 import { spawnSync } from 'node:child_process'
+import { existsSync } from 'node:fs'
 
-if ((process.env.DATABASE_URL || '').startsWith('file:')) {
-  console.log('[migrate] SQLite preview database — schema is pushed by the seed; skipping migrations')
+export const PREVIEW_MARKER = '.preview-db-ready'
+
+const isSqlite = (process.env.DATABASE_URL || '').startsWith('file:')
+if (isSqlite && existsSync(PREVIEW_MARKER)) {
+  console.log('[migrate] SQLite preview database prepared at build time — skipping')
   process.exit(0)
 }
-const args = ['payload', 'migrate', ...process.argv.slice(2)]
-const res = spawnSync('pnpm', ['exec', ...args], {
+const res = spawnSync('pnpm', ['exec', 'payload', 'migrate', ...process.argv.slice(2)], {
   stdio: 'inherit',
   env: { ...process.env, NODE_OPTIONS: '--no-deprecation' },
 })

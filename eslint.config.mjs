@@ -24,7 +24,7 @@ const eslintConfig = [
     },
   },
   {
-    ignores: ['.next/', 'coverage/', 'src/migrations/', 'playwright-report/', 'src/payload-types.ts', 'src/payload-generated-schema.ts'],
+    ignores: ['.next/', 'coverage/', 'src/migrations/', 'src/migrations-sqlite/', 'playwright-report/', 'src/payload-types.ts', 'src/payload-generated-schema.ts'],
   },
 ]
 
