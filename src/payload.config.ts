@@ -26,8 +26,11 @@ export default buildConfig({
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URL || '' },
-    // Dev pushes schema changes automatically; production runs `payload migrate`.
-    push: process.env.NODE_ENV !== 'production',
+    // Schema changes ship as migrations (src/migrations): `pnpm migrate:create`
+    // after editing collections, `pnpm migrate` before start/seed. Set
+    // PAYLOAD_DB_PUSH=true for quick local prototyping only.
+    push: process.env.PAYLOAD_DB_PUSH === 'true',
+    migrationDir: path.resolve(dirname, 'migrations'),
   }),
   sharp,
 })

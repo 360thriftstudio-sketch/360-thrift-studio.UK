@@ -16,6 +16,7 @@ export const BrandCollections: CollectionConfig = {
     { name: 'section', type: 'relationship', relationTo: 'sections' },
     { name: 'tier', type: 'text', admin: { description: 'Badge label, e.g. "A. Premium / Iconic".' } },
     { name: 'description', type: 'textarea' },
+    { name: 'bestSuitedFor', type: 'relationship', relationTo: 'buyer-types', hasMany: true },
     { name: 'image', type: 'upload', relationTo: 'media' },
     orderField,
     seoField,

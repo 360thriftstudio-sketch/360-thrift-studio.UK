@@ -1,9 +1,10 @@
 'use client'
 
-import { Search, ShoppingBasket, User } from 'lucide-react'
+import { Search, User } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 
+import { HeaderBasketLink } from '@/components/quote/HeaderBasketLink'
 import type { SiteNav } from '@/lib/nav-types'
 import { cn } from '@/lib/utils'
 
@@ -18,7 +19,7 @@ const iconLink =
  * Sticky header. Shrinks to 56 px once scrolled; hides on scroll down and
  * reappears on scroll up (never hides while focus is inside it).
  */
-export function Header({ nav, basketCount = 0 }: { nav: SiteNav; basketCount?: number }) {
+export function Header({ nav, loggedIn }: { nav: SiteNav; loggedIn?: boolean }) {
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
   const lastY = useRef(0)
@@ -38,15 +39,13 @@ export function Header({ nav, basketCount = 0 }: { nav: SiteNav; basketCount?: n
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const basketLabel = `Quote basket, ${basketCount} ${basketCount === 1 ? 'lot' : 'lots'}`
-
   return (
     <header
       ref={ref}
       data-state={scrolled ? 'scrolled' : 'default'}
       onFocus={() => setHidden(false)}
       className={cn(
-        'sticky top-0 z-30 border-b border-line bg-surface',
+        'sticky top-0 z-30 border-b-2 border-ink bg-brand-cream',
         'transition-transform duration-[var(--dur-base)] ease-out',
         hidden && '-translate-y-full',
       )}
@@ -58,9 +57,8 @@ export function Header({ nav, basketCount = 0 }: { nav: SiteNav; basketCount?: n
         )}
       >
         <MobileNav nav={nav} />
-        <Link href="/" className="mr-4 inline-flex min-h-11 items-center">
-          <StudioLogo variant="header" />
-          <span className="sr-only">— home</span>
+        <Link href="/" className="mr-2 inline-flex min-h-11 items-center lg:mr-4" aria-label="360° Thrift Studio — home">
+          <StudioLogo variant="header" priority className={scrolled ? 'max-h-[48px] w-auto!' : undefined} />
         </Link>
 
         <nav aria-label="Main" className="hidden lg:block">
@@ -72,7 +70,7 @@ export function Header({ nav, basketCount = 0 }: { nav: SiteNav; basketCount?: n
             <label htmlFor="header-search" className="sr-only">
               Search lots, brands and sections
             </label>
-            <div className="flex items-center gap-2 rounded-pill border border-line bg-bg px-3 focus-within:border-ink">
+            <div className="flex items-center gap-2 rounded-pill border-2 border-ink bg-surface px-3">
               <Search aria-hidden className="size-4 text-ink-muted" />
               <input
                 id="header-search"
@@ -89,18 +87,10 @@ export function Header({ nav, basketCount = 0 }: { nav: SiteNav; basketCount?: n
           </Link>
           <Link href="/account" className={iconLink}>
             <User aria-hidden className="size-5" />
-            <span className="sr-only">Account</span>
+            {loggedIn ? <span aria-hidden className="absolute right-2 top-2 size-2 rounded-pill bg-brand-green ring-2 ring-brand-cream" /> : null}
+            <span className="sr-only">{loggedIn ? 'Your account' : 'Log in or create an account'}</span>
           </Link>
-          <Link href="/quote" className={iconLink} data-basket-target>
-            <ShoppingBasket aria-hidden className="size-5" />
-            <span className="sr-only">{basketLabel}</span>
-            <span
-              aria-hidden
-              className="absolute right-0.5 top-0.5 inline-flex min-w-5 items-center justify-center rounded-pill bg-accent px-1 text-xs font-bold text-accent-ink"
-            >
-              {basketCount}
-            </span>
-          </Link>
+          <HeaderBasketLink />
         </div>
       </div>
     </header>

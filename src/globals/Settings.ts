@@ -8,6 +8,21 @@ export const Settings: GlobalConfig = {
   access: { read: anyone, update: isStaff },
   fields: [
     {
+      name: 'business',
+      type: 'group',
+      fields: [
+        { name: 'name', type: 'text', defaultValue: '360° Thrift Studio' },
+        { name: 'tagline', type: 'text', defaultValue: 'Vintage · Premium · Wholesale' },
+        { name: 'slogan', type: 'text', defaultValue: 'Good clothes. Bigger stories.' },
+        {
+          name: 'locations',
+          type: 'array',
+          admin: { description: 'Offices & warehouses.' },
+          fields: [{ name: 'country', type: 'text', required: true }, { name: 'detail', type: 'text' }],
+        },
+      ],
+    },
+    {
       type: 'collapsible',
       label: 'Brand logos (legal guardrail)',
       fields: [

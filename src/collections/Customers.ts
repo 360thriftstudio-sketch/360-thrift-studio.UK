@@ -48,14 +48,14 @@ export const Customers: CollectionConfig = {
         { label: 'Approved', value: 'approved' },
         { label: 'Rejected', value: 'rejected' },
       ],
-      access: { update: isStaffField },
+      access: { create: isStaffField, update: isStaffField },
       admin: { position: 'sidebar' },
     },
     {
       name: 'priceList',
       type: 'relationship',
       relationTo: 'price-lists',
-      access: { update: isStaffField },
+      access: { create: isStaffField, update: isStaffField },
       admin: { position: 'sidebar', description: 'Overrides guide prices when logged in.' },
     },
     {
@@ -79,7 +79,7 @@ export const Customers: CollectionConfig = {
     {
       name: 'internalNotes',
       type: 'textarea',
-      access: { read: isStaffField, update: isStaffField },
+      access: { read: isStaffField, create: isStaffField, update: isStaffField },
     },
   ],
 }

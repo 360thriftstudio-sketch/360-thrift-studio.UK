@@ -21,11 +21,22 @@
   --color-success: var(--color-success);
   --color-error: var(--color-error);
   --color-focus: var(--color-focus);
+  --color-highlight: var(--color-highlight);
+  --color-highlight-ink: var(--color-highlight-ink);
+  --color-eco: var(--color-eco);
+  --color-eco-ink: var(--color-eco-ink);
+  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-green: var(--brand-green);
+  --color-brand-black: var(--brand-black);
+  --color-brand-cream: var(--brand-cream);
+  --color-white: #ffffff;
   --color-transparent: transparent;
   --color-current: currentColor;
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);
+  --font-marker: var(--font-marker);
 
   --text-xs: var(--text-xs);
   --text-sm: var(--text-sm);
@@ -76,7 +87,9 @@
   h4 {
     font-family: var(--font-display);
     line-height: var(--leading-tight);
-    font-weight: 800;
+    font-weight: 400; /* Anton is a single heavy weight */
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
   }
 
   :focus-visible {
@@ -123,3 +136,72 @@
   .mega-panel[data-state='open'] { animation: fade-in 150ms linear; }
   .drawer-content[data-state='closed'] { animation: fade-out 150ms linear; }
 }
+
+/* StudioLogo header micro-animation (hover/focus only) */
+@keyframes logo-wiggle {
+  0%, 100% { transform: rotate(0) scale(1); }
+  30% { transform: rotate(-4deg) scale(1.04); }
+  60% { transform: rotate(3deg) scale(1.04); }
+}
+a:hover > .studio-logo[data-variant='header'],
+a:focus-visible > .studio-logo[data-variant='header'] {
+  animation: logo-wiggle 400ms var(--ease-out);
+}
+@media (prefers-reduced-motion: reduce) {
+  a:hover > .studio-logo, a:focus-visible > .studio-logo { animation: none; }
+}
+
+/* Splatter pattern background (brand board "patterns & textures") */
+.bg-splatter {
+  background-image:
+    radial-gradient(circle at 8% 20%, var(--brand-yellow) 0 38px, transparent 39px),
+    radial-gradient(circle at 18% 70%, var(--brand-blue) 0 22px, transparent 23px),
+    radial-gradient(circle at 88% 18%, var(--brand-green) 0 30px, transparent 31px),
+    radial-gradient(circle at 78% 82%, var(--brand-yellow) 0 18px, transparent 19px),
+    radial-gradient(circle at 95% 60%, var(--brand-blue) 0 10px, transparent 11px),
+    radial-gradient(circle at 4% 92%, var(--brand-green) 0 12px, transparent 13px);
+}
+
+/* Section entry on scroll: 360 ms, runs once (see Reveal component). */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
+.reveal[data-shown='true'] { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transform: none; transition: opacity 150ms linear; }
+}
+
+/* Skeleton shimmer 1.2 s linear; static under reduced motion */
+@keyframes shimmer { from { background-position: -200% 0; } to { background-position: 200% 0; } }
+.skeleton {
+  background: linear-gradient(90deg, var(--color-line) 25%, #f3efe2 50%, var(--color-line) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) { .skeleton { animation: none; } }
+
+@keyframes count-bounce { 0% { transform: scale(1); } 40% { transform: scale(1.35); } 100% { transform: scale(1); } }
+[data-pulse='true'] { animation: count-bounce 400ms var(--ease-brand); }
+@media (prefers-reduced-motion: reduce) { [data-pulse='true'] { animation: none; } }
+
+@keyframes pop-in { from { opacity: 0; transform: translate(-50%, -50%) scale(0.98); } }
+.quickview[data-state='open'] { animation: pop-in 280ms var(--ease-brand); }
+@media (prefers-reduced-motion: reduce) { .quickview[data-state='open'] { animation: fade-in 150ms linear; } }
+
+/* Brand marquee (~40 px/s). Pauses on hover, focus, button; static for reduced motion. */
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee linear infinite; }
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track,
+.marquee[data-paused] .marquee-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .marquee { overflow-x: auto; }
+}
+
+/* Hero intro: logo plays once per session (see HeroIntro); content renders underneath. */
+@keyframes logo-intro {
+  0% { opacity: 0; transform: scale(0.6) rotate(-8deg); }
+  60% { opacity: 1; transform: scale(1.06) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+.hero-logo[data-intro='true'] { animation: logo-intro var(--dur-brand) var(--ease-brand) both; }
+@media (prefers-reduced-motion: reduce) { .hero-logo[data-intro='true'] { animation: fade-in 150ms linear both; } }

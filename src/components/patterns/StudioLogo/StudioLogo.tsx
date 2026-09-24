@@ -1,33 +1,38 @@
+import Image from 'next/image'
+
 import { cn } from '@/lib/utils'
 
 export type StudioLogoVariant = 'intro' | 'header' | 'loader' | 'footer'
 
+const SIZES: Record<StudioLogoVariant, number> = { header: 60, loader: 96, intro: 280, footer: 150 }
+
 /**
- * 360 Thrift Studio logo.
- *
- * PLACEHOLDER: a typographic mark until the real files arrive
- * (studio-logo.svg ≤ 10 KB + studio-logo-intro.lottie ≤ 60 KB).
- * Build 4 swaps in the SVG and lazy-loads the dotLottie player for
- * `intro` / `footer`; `header` gets a 400 ms hover micro-animation.
+ * 360 Thrift Studio logo (from the brand board).
+ * Raster for now; swap `src` for studio-logo.svg (≤ 10 KB) when the vector
+ * arrives. Build 4 lazy-loads the dotLottie intro/footer animations.
+ * The header mark gets a 400 ms hover wiggle (none under reduced motion).
  */
 export function StudioLogo({
   variant = 'header',
   className,
+  priority,
 }: {
   variant?: StudioLogoVariant
   className?: string
+  priority?: boolean
 }) {
+  const h = SIZES[variant]
+  const w = Math.round(h * (370 / 395))
   return (
-    <span
+    <Image
+      src="/brand/studio-logo-mark.webp"
+      alt="360 Thrift Studio"
+      width={w}
+      height={h}
+      priority={priority}
       data-variant={variant}
-      className={cn(
-        'studio-logo inline-flex items-baseline gap-1.5 font-display leading-none tracking-tight text-ink',
-        variant === 'footer' ? 'text-3xl' : 'text-xl',
-        className,
-      )}
-    >
-      <span className="font-black">360</span>
-      <span className="font-semibold uppercase">Thrift Studio</span>
-    </span>
+      className={cn('studio-logo h-auto select-none', className)}
+      style={{ width: w }}
+    />
   )
 }

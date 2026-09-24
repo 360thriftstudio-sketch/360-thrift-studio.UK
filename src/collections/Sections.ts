@@ -39,6 +39,17 @@ export const Sections: CollectionConfig = {
       ],
     },
     {
+      name: 'brandSets',
+      type: 'array',
+      labels: { singular: 'Brand set', plural: 'Fashion categories & relevant brands' },
+      admin: { description: 'Brands stocked in this section, grouped by fashion category.' },
+      fields: [
+        { name: 'fashionCategory', type: 'relationship', relationTo: 'fashion-categories', required: true },
+        { name: 'label', type: 'text', admin: { description: 'Heading as written in the catalogue.' } },
+        { name: 'brands', type: 'relationship', relationTo: 'brands', hasMany: true },
+      ],
+    },
+    {
       name: 'seoContent',
       type: 'richText',
       admin: { description: 'Expandable text at the bottom of the listing.' },

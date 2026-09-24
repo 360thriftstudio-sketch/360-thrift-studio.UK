@@ -1,0 +1,214 @@
+[
+ {
+  "slug": "about",
+  "group": "info",
+  "title": "About 360° Thrift Studio",
+  "intro": "Good clothes. Bigger stories. We grade, count and pack pre-owned branded clothing and bags for resellers across the UK and worldwide.",
+  "sections": [
+   {
+    "heading": "Vintage · Premium · Wholesale",
+    "body": "360° Thrift Studio supplies graded wholesale lots and bales to online resellers, vintage shops, market traders and importers.\n\nEvery lot is sorted by section, brand and style, with pieces, weight and grade stated up front."
+   },
+   {
+    "heading": "Offices & warehouses",
+    "body": "- United Kingdom — office & warehouse\n- Pakistan — office & warehouse"
+   },
+   {
+    "heading": "Rewear. Resell. Repeat.",
+    "body": "Every garment we sell gets a second life. Thrift more, waste less."
+   },
+   {
+    "heading": "Independent reseller",
+    "body": "We are an independent reseller of pre-owned goods. We are not affiliated with or endorsed by any brand shown on this site."
+   }
+  ]
+ },
+ {
+  "slug": "how-to-buy",
+  "group": "info",
+  "title": "How to buy",
+  "intro": "No checkout, no card needed. Build a quote basket and we reply with a quote and invoice.",
+  "sections": [
+   {
+    "heading": "1. Browse",
+    "body": "Filter by section, brand, style, grade and lot size. Every lot shows pieces, weight and grade."
+   },
+   {
+    "heading": "2. Add to quote",
+    "body": "Add lots and quantities to your quote basket. Guide prices update as quantities change."
+   },
+   {
+    "heading": "3. Request your quote",
+    "body": "Tell us your company, delivery and payment preference. We reply within 1 working day, usually sooner. Stock is held for 48 hours while we prepare your quote."
+   },
+   {
+    "heading": "4. Pay & dispatch",
+    "body": "Accept the quote, pay by bank transfer or card payment link, and we dispatch within 24 hours of payment."
+   },
+   {
+    "heading": "Guide prices",
+    "body": "All prices on the site are guide prices, excluding VAT and shipping. The final price is on your quote."
+   }
+  ]
+ },
+ {
+  "slug": "grading",
+  "group": "info",
+  "title": "Grading guide",
+  "intro": "Honest grades, stated on every lot. Here is what each grade means.",
+  "sections": [
+   {
+    "heading": "Cream",
+    "body": "Top pick of the grade. Clean, strong colour, no visible flaws. Ready to list."
+   },
+   {
+    "heading": "Grade A",
+    "body": "Very good pre-owned condition. Light signs of wear at most. Ready to list after a quick check."
+   },
+   {
+    "heading": "Grade B",
+    "body": "Good wearable condition with minor flaws such as light marks, fading or small repairs. Priced for volume."
+   },
+   {
+    "heading": "Mixed",
+    "body": "A stated mix of grades. The lot page lists the split."
+   },
+   {
+    "heading": "Verified era",
+    "body": "\"Verified vintage\" and \"Verified Y2K\" are only used when labels and construction confirm the production era. \"Y2K style\" means the look, not the era."
+   }
+  ]
+ },
+ {
+  "slug": "shipping",
+  "group": "info",
+  "title": "Shipping",
+  "intro": "UK and worldwide dispatch from our warehouses.",
+  "sections": [
+   {
+    "heading": "Options",
+    "body": "- Collect from the warehouse (by appointment)\n- UK courier\n- Pallet delivery\n- International shipping — documents provided"
+   },
+   {
+    "heading": "Dispatch",
+    "body": "Orders are dispatched within 24 hours of payment. Shipping is quoted with your order."
+   }
+  ]
+ },
+ {
+  "slug": "warehouse-visit",
+  "group": "info",
+  "title": "Warehouse visit",
+  "intro": "See the stock before you buy. Visits are by appointment.",
+  "sections": [
+   {
+    "heading": "Book a visit",
+    "body": "Contact us with your preferred date, the sections you are interested in and your company name. We will confirm a time and have the relevant lots ready."
+   }
+  ]
+ },
+ {
+  "slug": "faq",
+  "group": "info",
+  "title": "FAQ",
+  "intro": "Quick answers for trade buyers.",
+  "sections": [
+   {
+    "heading": "Do I pay online?",
+    "body": "No. You send a quote request and we reply with a quote and invoice. Pay by bank transfer or card link."
+   },
+   {
+    "heading": "Is there a minimum order?",
+    "body": "Minimum order is shown on each lot. Most lots start at 1."
+   },
+   {
+    "heading": "Can I see trade prices?",
+    "body": "Some lots show trade prices after a quick account check. Open a trade account to see them."
+   },
+   {
+    "heading": "Do you ship internationally?",
+    "body": "Yes. We ship worldwide and provide shipping documents."
+   },
+   {
+    "heading": "Can you source luxury items?",
+    "body": "Yes — Dior, Gucci and Louis Vuitton on request. Tell us the brand, model and budget."
+   }
+  ]
+ },
+ {
+  "slug": "contact",
+  "group": "info",
+  "title": "Contact",
+  "intro": "Questions about a lot, a quote or a visit? Get in touch.",
+  "sections": [
+   {
+    "heading": "Offices & warehouses",
+    "body": "- United Kingdom\n- Pakistan"
+   },
+   {
+    "heading": "Reply time",
+    "body": "We reply within 1 working day, usually sooner."
+   }
+  ]
+ },
+ {
+  "slug": "privacy",
+  "group": "legal",
+  "title": "Privacy notice",
+  "intro": "DRAFT — replace with solicitor-approved text before launch.",
+  "sections": [
+   {
+    "heading": "Privacy notice",
+    "body": "This page will set out our privacy notice."
+   }
+  ]
+ },
+ {
+  "slug": "cookies",
+  "group": "legal",
+  "title": "Cookie policy",
+  "intro": "DRAFT — replace with solicitor-approved text before launch.",
+  "sections": [
+   {
+    "heading": "Cookie policy",
+    "body": "This page will set out our cookie policy."
+   }
+  ]
+ },
+ {
+  "slug": "terms",
+  "group": "legal",
+  "title": "Terms of trade",
+  "intro": "DRAFT — replace with solicitor-approved text before launch.",
+  "sections": [
+   {
+    "heading": "Terms of trade",
+    "body": "This page will set out our terms of trade."
+   }
+  ]
+ },
+ {
+  "slug": "disclaimer",
+  "group": "legal",
+  "title": "Disclaimer",
+  "intro": "DRAFT — replace with solicitor-approved text before launch.",
+  "sections": [
+   {
+    "heading": "Disclaimer",
+    "body": "360° Thrift Studio is an independent reseller of pre-owned goods. We are not affiliated with or endorsed by any brand shown. Brand names are used only to describe the goods we sell."
+   }
+  ]
+ },
+ {
+  "slug": "accessibility",
+  "group": "legal",
+  "title": "Accessibility statement",
+  "intro": "DRAFT — replace with solicitor-approved text before launch.",
+  "sections": [
+   {
+    "heading": "Accessibility statement",
+    "body": "We aim to meet WCAG 2.2 AA. If anything on this site is hard to use, contact us and we will help and fix it."
+   }
+  ]
+ }
+]

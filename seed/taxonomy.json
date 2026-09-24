@@ -1,128 +1,4731 @@
 {
-  "_readme": "Seed taxonomy. Section names, order and the 10 fashion categories come from the catalogue. Subcategory groups, brand lists, collections and descriptors marked draft:true are STARTING POINTS — replace them with the exact lists from your catalogue PDF, then run `pnpm seed` again (it upserts by slug).",
-  "sections": [
-    { "number": 1, "name": "T-Shirts", "menuColumn": "1", "draft": true, "groups": [
-      { "key": "A", "label": "Graphic & print", "subcategories": ["Graphic tees", "Band & tour tees", "Spellout tees", "Single stitch tees"] },
-      { "key": "B", "label": "Plain & logo", "subcategories": ["Small logo tees", "Plain tees", "Long sleeve tees"] }
-    ]},
-    { "number": 2, "name": "Three Button Polos", "menuColumn": "1", "draft": true, "groups": [
-      { "key": "A", "label": "Short sleeve", "subcategories": ["Plain polos", "Striped polos", "Small logo polos"] },
-      { "key": "B", "label": "Long sleeve", "subcategories": ["Long sleeve polos"] }
-    ]},
-    { "number": 3, "name": "Rugby Polos", "menuColumn": "1", "draft": true, "groups": [
-      { "key": "A", "label": "Rugby shirts", "subcategories": ["Striped rugby shirts", "Colour-block rugby shirts", "Plain rugby shirts"] }
-    ]},
-    { "number": 4, "name": "Shirts", "menuColumn": "1", "draft": true, "groups": [
-      { "key": "A", "label": "Casual", "subcategories": ["Flannel shirts", "Oxford shirts", "Hawaiian shirts", "Denim shirts"] },
-      { "key": "B", "label": "Work & utility", "subcategories": ["Work shirts", "Overshirts"] }
-    ]},
-    { "number": 5, "name": "Shorts", "menuColumn": "1", "draft": true, "groups": [
-      { "key": "A", "label": "Casual", "subcategories": ["Cargo shorts", "Chino shorts", "Denim shorts"] },
-      { "key": "B", "label": "Sport", "subcategories": ["Sports shorts", "Swim shorts"] }
-    ]},
-    { "number": 6, "name": "Pants & Trousers", "menuColumn": "1", "draft": true, "groups": [
-      { "key": "A", "label": "Casual", "subcategories": ["Cargo pants", "Chinos", "Corduroy trousers"] },
-      { "key": "B", "label": "Work & sport", "subcategories": ["Carpenter pants", "Track pants", "Joggers"] }
-    ]},
-    { "number": 7, "name": "Jeans & Denim Wear", "menuColumn": "1", "draft": true, "groups": [
-      { "key": "A", "label": "Jeans", "subcategories": ["Straight jeans", "Baggy jeans", "Bootcut & flare jeans", "Skinny jeans"] },
-      { "key": "B", "label": "Denim wear", "subcategories": ["Denim jackets", "Denim skirts", "Dungarees"] }
-    ]},
-    { "number": 8, "name": "Sweatshirts & Hoodies", "menuColumn": "1", "draft": true, "groups": [
-      { "key": "A", "label": "Sweatshirts", "subcategories": ["Crewneck sweatshirts", "Quarter-zip sweatshirts"] },
-      { "key": "B", "label": "Hoodies", "subcategories": ["Pullover hoodies", "Zip hoodies"] }
-    ]},
-    { "number": 9, "name": "Knitwear", "menuColumn": "2", "draft": true, "groups": [
-      { "key": "A", "label": "Jumpers", "subcategories": ["Crewneck jumpers", "V-neck jumpers", "Quarter-zip jumpers"] },
-      { "key": "B", "label": "Cardigans & vests", "subcategories": ["Cardigans", "Knitted vests"] }
-    ]},
-    { "number": 10, "name": "Track Jackets", "menuColumn": "2", "draft": true, "groups": [
-      { "key": "A", "label": "Track tops", "subcategories": ["Zip track jackets", "Shell tracksuits", "Full tracksuits"] }
-    ]},
-    { "number": 11, "name": "Fleece Jackets", "menuColumn": "2", "draft": true, "groups": [
-      { "key": "A", "label": "Fleece", "subcategories": ["Full-zip fleece", "Half-zip fleece", "Sherpa & pile fleece"] }
-    ]},
-    { "number": 12, "name": "Jackets", "menuColumn": "2", "draft": true, "groups": [
-      { "key": "A", "label": "Lightweight / Technical / Shell", "subcategories": ["Windbreakers", "Rain jackets", "Shell jackets"] },
-      { "key": "B", "label": "Work & heritage", "subcategories": ["Work jackets", "Harrington jackets", "Waxed jackets", "Bomber jackets"] },
-      { "key": "C", "label": "Leather & suede", "subcategories": ["Leather jackets", "Suede jackets"] }
-    ]},
-    { "number": 13, "name": "Puffer Jackets", "menuColumn": "2", "draft": true, "groups": [
-      { "key": "A", "label": "Puffers", "subcategories": ["Short puffers", "Long puffers", "Gilets"] }
-    ]},
-    { "number": 14, "name": "Activewear & Athleisure", "menuColumn": "2", "draft": true, "groups": [
-      { "key": "A", "label": "Activewear", "subcategories": ["Leggings", "Sports bras", "Training tops", "Running jackets"] }
-    ]},
-    { "number": 15, "name": "Bags (Women)", "menuColumn": "2", "draft": true, "groups": [
-      { "key": "A", "label": "Bags", "subcategories": ["Shoulder bags", "Crossbody bags", "Tote bags", "Clutches"] }
-    ]}
-  ],
-  "fashionCategories": [
-    "Classic & Preppy",
-    "Sportswear",
-    "Outdoor & Technical / Gorpcore",
-    "Workwear",
-    "Streetwear",
-    "Denimwear",
-    "Surf",
-    "Fanwear",
-    "Y2K & Vintage",
-    "Luxury"
-  ],
-  "buyerTypes": [
-    "Streetwear resellers",
-    "Y2K boutiques",
-    "Vintage shops",
-    "Online resellers (Depop, Vinted, eBay)",
-    "Live sellers",
-    "Market traders",
-    "International importers"
-  ],
-  "brands": [
-    { "name": "The North Face", "styles": ["Outdoor & Technical / Gorpcore"], "featured": true },
-    { "name": "Patagonia", "styles": ["Outdoor & Technical / Gorpcore"], "featured": true },
-    { "name": "Columbia", "styles": ["Outdoor & Technical / Gorpcore"], "featured": true },
-    { "name": "Arc'teryx", "styles": ["Outdoor & Technical / Gorpcore"], "featured": false },
-    { "name": "Carhartt", "styles": ["Workwear"], "featured": true },
-    { "name": "Dickies", "styles": ["Workwear"], "featured": true },
-    { "name": "Nike", "styles": ["Sportswear", "Streetwear"], "featured": true },
-    { "name": "Adidas", "styles": ["Sportswear", "Streetwear"], "featured": true },
-    { "name": "Champion", "styles": ["Sportswear"], "featured": true },
-    { "name": "Fila", "styles": ["Sportswear"], "featured": false },
-    { "name": "Ralph Lauren", "styles": ["Classic & Preppy"], "featured": true },
-    { "name": "Tommy Hilfiger", "styles": ["Classic & Preppy"], "featured": true },
-    { "name": "Lacoste", "styles": ["Classic & Preppy"], "featured": true },
-    { "name": "Levi's", "styles": ["Denimwear"], "featured": true },
-    { "name": "Wrangler", "styles": ["Denimwear"], "featured": false },
-    { "name": "Quiksilver", "styles": ["Surf"], "featured": false },
-    { "name": "Billabong", "styles": ["Surf"], "featured": false },
-    { "name": "Stüssy", "styles": ["Streetwear"], "featured": true },
-    { "name": "Lululemon", "styles": ["Sportswear"], "featured": true },
-    { "name": "Coach", "styles": ["Luxury", "Y2K & Vintage"], "featured": true },
-    { "name": "Burberry", "styles": ["Luxury", "Classic & Preppy"], "featured": true },
-    { "name": "Dior", "styles": ["Luxury"], "luxuryOnRequest": true },
-    { "name": "Gucci", "styles": ["Luxury"], "luxuryOnRequest": true },
-    { "name": "Louis Vuitton", "styles": ["Luxury"], "luxuryOnRequest": true }
-  ],
-  "brandCollections": [
-    { "brand": "The North Face", "section": 13, "name": "TNF Puffers — Premium / Iconic", "tier": "A. Premium / Iconic" },
-    { "brand": "The North Face", "section": 13, "name": "TNF Puffers — High-fill", "tier": "B. High-fill" },
-    { "brand": "The North Face", "section": 13, "name": "TNF Puffers — Core", "tier": "C. Core 550–650 fill" },
-    { "brand": "The North Face", "section": 13, "name": "TNF Puffers — Standard", "tier": "D. Standard" },
-    { "brand": "The North Face", "section": 13, "name": "TNF Long puffers", "tier": "Long puffers" },
-    { "brand": "The North Face", "section": 13, "name": "TNF Gilets", "tier": "Gilets" },
-    { "brand": "The North Face", "section": 13, "name": "TNF Nuptse", "tier": "Nuptse" },
-    { "brand": "Lululemon", "section": 14, "name": "Lululemon Align", "tier": "Align" },
-    { "brand": "Coach", "section": 15, "name": "Coach Archive", "tier": "Archive" }
-  ],
-  "descriptors": [
-    { "group": "Fill power", "kind": "descriptor", "sections": [13], "terms": ["550 fill", "600 fill", "650 fill", "700 fill", "800 fill"] },
-    { "group": "Insulation", "kind": "descriptor", "sections": [13], "terms": ["Down", "Synthetic"] },
-    { "group": "Length", "kind": "descriptor", "sections": [13], "terms": ["Cropped", "Hip length", "Long"] },
-    { "group": "Hood", "kind": "descriptor", "sections": [12, 13, 8], "terms": ["Hooded", "No hood"] },
-    { "group": "Knit", "kind": "descriptor", "sections": [9], "terms": ["Cable-knit", "Fair Isle", "Ribbed", "Chunky knit"] },
-    { "group": "Fibre", "kind": "descriptor", "sections": [9], "terms": ["Wool", "Cotton", "Cashmere blend", "Acrylic"] },
-    { "group": "Fit", "kind": "descriptor", "sections": [7, 6], "terms": ["Straight", "Relaxed", "Baggy", "Slim"] },
-    { "group": "Design group", "kind": "design-group", "sections": [], "terms": ["Plain", "Small logo", "Spellout", "Graphic", "Colour-block", "Stripe-detail"] }
+ "_readme": "GENERATED by seed/source/build_taxonomy.py from the 360 Thrift Studio catalogue and brand catalogues. Edit the script, not this file.",
+ "business": {
+  "name": "360° Thrift Studio",
+  "tagline": "Vintage · Premium · Wholesale",
+  "locations": [
+   "United Kingdom",
+   "Pakistan"
   ]
+ },
+ "fashionCategories": [
+  {
+   "name": "Classic & Preppy",
+   "description": "Ralph Lauren, Tommy Hilfiger, Lacoste and heritage casual."
+  },
+  {
+   "name": "Sportswear & Activewear",
+   "description": "Adidas, Nike, Champion, Lululemon and team-sports lines."
+  },
+  {
+   "name": "Outdoor & Technical / Gorpcore",
+   "description": "The North Face, Patagonia, Columbia and heritage outdoor."
+  },
+  {
+   "name": "Workwear & Utility",
+   "description": "Carhartt, Dickies and heavy canvas work garments."
+  },
+  {
+   "name": "Streetwear",
+   "description": "Carhartt WIP, Vans, hip-hop and skatewear labels."
+  },
+  {
+   "name": "Denimwear",
+   "description": "Levi's, Wrangler and embellished statement denim."
+  },
+  {
+   "name": "Surf & Beachwear",
+   "description": "Rip Curl, Billabong, Quiksilver and board-sports brands."
+  },
+  {
+   "name": "Sports Fanwear & Official Merchandise",
+   "description": "Verified official team and league merchandise only."
+  },
+  {
+   "name": "Y2K & Vintage",
+   "description": "Verified vintage, original-era Y2K and Y2K-style stock."
+  },
+  {
+   "name": "Luxury",
+   "description": "Premium and luxury labels, including items sourced on request."
+  }
+ ],
+ "buyerTypes": [
+  "Online & live sellers",
+  "Streetwear resellers",
+  "Vintage shops",
+  "Y2K boutiques",
+  "Market traders",
+  "International importers",
+  "Outdoor & technical resellers",
+  "Gorpcore resellers",
+  "Specialist TNF buyers",
+  "General branded resellers",
+  "Premium winterwear sellers",
+  "Winterwear resellers",
+  "Budget resellers",
+  "Volume-focused sellers",
+  "Women-focused resellers",
+  "Budget & volume winterwear sellers",
+  "Premium branded resellers",
+  "Transitional-season sellers",
+  "Activewear specialists",
+  "Branded resale stores",
+  "Women's athleisure sellers",
+  "Men's performance-casual sellers",
+  "Coach specialists",
+  "Vintage leather sellers",
+  "Contemporary branded resellers",
+  "Y2K resellers",
+  "Utility-fashion sellers",
+  "GG&L specialists",
+  "Vintage specialists",
+  "Y2K & McBling resellers",
+  "Fashion-led handbag sellers",
+  "Boho-fashion sellers",
+  "Statement-bag specialists",
+  "Style-led resellers",
+  "Budget-fashion sellers",
+  "Handbag specialists",
+  "Vintage & Y2K resellers",
+  "Fashion boutiques",
+  "Workwear resellers",
+  "Sports fanwear sellers"
+ ],
+ "sections": [
+  {
+   "number": 1,
+   "name": "T-Shirts",
+   "menuColumn": "1",
+   "intro": "Branded, graphic, heavyweight and vintage tees — from single stitch to Y2K era.",
+   "groups": [
+    {
+     "key": "",
+     "label": "",
+     "subcategories": [
+      "Branded / Logo T-Shirts",
+      "Graphic / Printed T-Shirts",
+      "Heavyweight / Workwear T-Shirts",
+      "Sportswear / Performance / Technical T-Shirts",
+      "Long-Sleeve T-Shirts",
+      "Vintage Tees",
+      "Y2K Era Tees",
+      "Single Stitch Tees",
+      "Football / Basketball Jerseys"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Classic & Preppy",
+     "label": "Classic & Preppy",
+     "brands": [
+      "Ralph Lauren",
+      "Lacoste",
+      "Tommy Hilfiger",
+      "Nautica",
+      "Chaps",
+      "U.S. Polo Assn.",
+      "GAP"
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Sportswear & Activewear",
+     "brands": [
+      "Adidas",
+      "Nike",
+      "Champion",
+      "Reebok",
+      "Puma",
+      "Starter",
+      "Jordan",
+      "Lululemon",
+      "Gymshark",
+      "Under Armour",
+      "Umbro",
+      "Fila",
+      "Russell Athletic"
+     ]
+    },
+    {
+     "style": "Outdoor & Technical / Gorpcore",
+     "label": "Outdoor & Technical",
+     "brands": [
+      "Columbia",
+      "The North Face",
+      "L.L.Bean",
+      "Patagonia"
+     ]
+    },
+    {
+     "style": "Workwear & Utility",
+     "label": "Workwear & Utility",
+     "brands": [
+      "Carhartt",
+      "Dickies"
+     ]
+    },
+    {
+     "style": "Streetwear",
+     "label": "Streetwear",
+     "brands": [
+      "Vans"
+     ]
+    },
+    {
+     "style": "Surf & Beachwear",
+     "label": "Surf & Beachwear",
+     "brands": [
+      "Rip Curl",
+      "Billabong",
+      "O'Neill",
+      "Quiksilver",
+      "Hurley",
+      "Oakley"
+     ]
+    }
+   ],
+   "descriptors": [
+    {
+     "group": "Design group",
+     "kind": "design-group",
+     "terms": [
+      "Plain",
+      "Small Logo",
+      "Large Logo",
+      "Spellout",
+      "Graphic",
+      "Pocket"
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "name": "Three Button Polos",
+   "menuColumn": "1",
+   "intro": "Piqué, golf and performance polos — small-logo classics to statement Big Pony.",
+   "groups": [
+    {
+     "key": "",
+     "label": "",
+     "subcategories": [
+      "Classic / Piqué Polos",
+      "Performance / Golf Polos",
+      "Activewear Polos",
+      "Long-Sleeve Polos"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Classic & Preppy",
+     "label": "Classic & Preppy",
+     "brands": [
+      "Lacoste",
+      "Ralph Lauren",
+      "Tommy Hilfiger"
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Sportswear & Activewear",
+     "brands": [
+      "Lululemon",
+      "Adidas",
+      "Nike"
+     ]
+    }
+   ],
+   "descriptors": [
+    {
+     "group": "Logo size",
+     "kind": "descriptor",
+     "terms": [
+      "Small Logo",
+      "Large / Statement Logo",
+      "Country / Crest",
+      "Spellout"
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "name": "Rugby Polos",
+   "menuColumn": "1",
+   "intro": "Striped, colour-block and official team rugby shirts, branded and unbranded.",
+   "groups": [
+    {
+     "key": "",
+     "label": "",
+     "subcategories": [
+      "Classic Striped Rugby Shirts",
+      "Plain / Logo Rugby Shirts",
+      "Colour-Block / Graphic Rugby Shirts",
+      "Official Team Rugby Shirts"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Classic & Preppy",
+     "label": "Classic & Preppy",
+     "brands": [
+      "Ralph Lauren",
+      "GANT",
+      "Brooks Brothers",
+      "Tommy Hilfiger",
+      "Lacoste",
+      "Abercrombie & Fitch",
+      "Nautica",
+      "Chaps",
+      "Levi's",
+      "L.L.Bean",
+      "U.S. Polo Assn.",
+      "GAP",
+      "Unbranded Multicolour Styles",
+      "Unbranded Colour-Block Styles"
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Sportswear & Activewear",
+     "brands": [
+      "Adidas",
+      "Nike",
+      "Canterbury",
+      "Champion",
+      "Ellesse",
+      "Reebok",
+      "Puma",
+      "Starter",
+      "Umbro",
+      "Kappa",
+      "Russell Athletic"
+     ]
+    },
+    {
+     "style": "Outdoor & Technical / Gorpcore",
+     "label": "Outdoor & Technical",
+     "brands": [
+      "Columbia"
+     ]
+    },
+    {
+     "style": "Streetwear",
+     "label": "Streetwear",
+     "brands": [
+      "Vans"
+     ]
+    },
+    {
+     "style": "Sports Fanwear & Official Merchandise",
+     "label": "Sports Fanwear & Official Merchandise — verified official only",
+     "brands": [
+      "Ivy League Names",
+      "National Team Labels"
+     ]
+    },
+    {
+     "style": "Y2K & Vintage",
+     "label": "Y2K & Vintage",
+     "brands": [
+      "Unbranded Y2K"
+     ]
+    }
+   ],
+   "descriptors": []
+  },
+  {
+   "number": 4,
+   "name": "Shirts",
+   "menuColumn": "1",
+   "intro": "Oxfords, flannels, denim, work, camp-collar and Hawaiian shirts.",
+   "groups": [
+    {
+     "key": "",
+     "label": "",
+     "subcategories": [
+      "Classic / Casual / Button-Up / Button-Down Shirts",
+      "Dress / Formal / Business Shirts",
+      "Flannel / Checked / Plaid / Buffalo Check / Tartan Shirts",
+      "Denim / Chambray Shirts",
+      "Workwear / Utility Shirts",
+      "Wool / Wool-Blend / Board Shirts",
+      "Bowling / Camp-Collar / Cuban-Collar / Revere-Collar Shirts",
+      "Hawaiian / Aloha / Resort / Tropical / Floral / Beach-Print Shirts",
+      "Printed / Patterned / All-Over Print Shirts"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Classic & Preppy",
+     "label": "Classic & Preppy",
+     "brands": [
+      "Ralph Lauren",
+      "Tommy Hilfiger",
+      "Lacoste",
+      "J.Crew",
+      "Brooks Brothers",
+      "GANT",
+      "Abercrombie & Fitch",
+      "Nautica",
+      "Charles Tyrwhitt",
+      "BOSS",
+      "HUGO",
+      "COS"
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Sportswear & Activewear",
+     "brands": [
+      "Lululemon"
+     ]
+    },
+    {
+     "style": "Outdoor & Technical / Gorpcore",
+     "label": "Outdoor & Technical",
+     "brands": [
+      "Woolrich",
+      "L.L.Bean",
+      "Pendleton",
+      "Columbia",
+      "Patagonia",
+      "Eddie Bauer"
+     ]
+    },
+    {
+     "style": "Workwear & Utility",
+     "label": "Workwear & Utility",
+     "brands": [
+      "Carhartt",
+      "Dickies",
+      "Filson"
+     ]
+    },
+    {
+     "style": "Streetwear",
+     "label": "Streetwear",
+     "brands": [
+      "Carhartt WIP"
+     ]
+    },
+    {
+     "style": "Denimwear",
+     "label": "Denimwear",
+     "brands": [
+      "Levi's",
+      "Wrangler"
+     ]
+    },
+    {
+     "style": "Surf & Beachwear",
+     "label": "Surf & Beachwear",
+     "brands": [
+      "Tommy Bahama",
+      "Rip Curl",
+      "Billabong",
+      "O'Neill",
+      "Oakley",
+      "Quiksilver",
+      "Hurley"
+     ]
+    },
+    {
+     "style": "Y2K & Vintage",
+     "label": "Assigned by garment style",
+     "brands": [
+      "Unbranded"
+     ]
+    }
+   ],
+   "descriptors": [
+    {
+     "group": "Print / pattern",
+     "kind": "design-group",
+     "terms": [
+      "Solid",
+      "Vertical Stripe",
+      "Check / Plaid",
+      "All-Over Print",
+      "Monogram",
+      "Border Print",
+      "Panel / Scenic Print",
+      "Southwestern",
+      "Geometric",
+      "Floral"
+     ]
+    },
+    {
+     "group": "Sleeve",
+     "kind": "descriptor",
+     "terms": [
+      "Long Sleeve",
+      "Short Sleeve"
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "name": "Shorts",
+   "menuColumn": "1",
+   "intro": "Chino, cargo, carpenter, athletic, swim and denim shorts — including Y2K embellished.",
+   "groups": [
+    {
+     "key": "",
+     "label": "",
+     "subcategories": [
+      "Chino / Smart Casual Shorts",
+      "Cargo Shorts",
+      "Workwear / Carpenter Shorts",
+      "Drawstring / Elastic-Waist Casual Shorts",
+      "Corduroy Shorts",
+      "Athletic / Activewear / Training / Gym Shorts",
+      "Basketball Shorts",
+      "Sweat / Jersey / Fleece Shorts",
+      "Running Shorts",
+      "Swim Trunks / Board Shorts",
+      "Denim Shorts / Jorts",
+      "Women's Y2K Denim Shorts — Embellished / Embroidered / Rhinestoned",
+      "Hip-Hop / Skatewear / Graphic / Baggy Denim Shorts"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Classic & Preppy",
+     "label": "Classic & Preppy",
+     "brands": [
+      "Ralph Lauren",
+      "Tommy Hilfiger",
+      "Lacoste",
+      "Nautica",
+      "U.S. Polo Assn."
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Sportswear & Activewear",
+     "brands": [
+      "Adidas",
+      "Nike",
+      "Champion",
+      "Reebok",
+      "Puma",
+      "Starter",
+      "Jordan",
+      "Lululemon",
+      "Gymshark",
+      "Under Armour",
+      "Umbro",
+      "Russell Athletic"
+     ]
+    },
+    {
+     "style": "Outdoor & Technical / Gorpcore",
+     "label": "Outdoor & Technical",
+     "brands": [
+      "Columbia",
+      "The North Face",
+      "L.L.Bean",
+      "Patagonia"
+     ]
+    },
+    {
+     "style": "Workwear & Utility",
+     "label": "Workwear & Utility",
+     "brands": [
+      "Carhartt",
+      "Dickies"
+     ]
+    },
+    {
+     "style": "Streetwear",
+     "label": "Streetwear",
+     "brands": [
+      "Carhartt WIP",
+      "Vans",
+      "JNCO",
+      "Evisu",
+      "FUBU",
+      "Southpole",
+      "Akademiks",
+      "Karl Kani",
+      "Ecko",
+      "Sean John",
+      "Rocawear"
+     ]
+    },
+    {
+     "style": "Denimwear",
+     "label": "Denimwear",
+     "brands": [
+      "Levi's",
+      "Lee",
+      "Wrangler",
+      "Miss Me",
+      "Rock Revival",
+      "True Religion"
+     ]
+    },
+    {
+     "style": "Surf & Beachwear",
+     "label": "Surf & Beachwear",
+     "brands": [
+      "Rip Curl",
+      "Billabong",
+      "O'Neill",
+      "Oakley",
+      "Quiksilver",
+      "Hurley"
+     ]
+    },
+    {
+     "style": "Sports Fanwear & Official Merchandise",
+     "label": "Sports Fanwear & Official Merchandise",
+     "brands": [
+      "NBA"
+     ]
+    },
+    {
+     "style": "Y2K & Vintage",
+     "label": "Y2K & Vintage",
+     "brands": [
+      "Unbranded Y2K"
+     ]
+    }
+   ],
+   "descriptors": [
+    {
+     "group": "Length",
+     "kind": "descriptor",
+     "terms": [
+      "Short / Cut-Off",
+      "Mid-Thigh",
+      "Above Knee",
+      "Knee-Length / Bermuda"
+     ]
+    },
+    {
+     "group": "Embellishment",
+     "kind": "descriptor",
+     "terms": [
+      "Rhinestone",
+      "Embroidered Pockets",
+      "Flap Pockets",
+      "Studded",
+      "Contrast Stitching"
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "name": "Pants & Trousers",
+   "menuColumn": "1",
+   "intro": "Chinos, cargos, double-knee work pants, track pants, joggers and hiking trousers.",
+   "groups": [
+    {
+     "key": "",
+     "label": "",
+     "subcategories": [
+      "Chinos / Khakis",
+      "Cargo / Casual Cargo Pants",
+      "Carpenter / Painter / Utility / Workwear Pants",
+      "Drawstring / Elastic-Waist Cotton Pants",
+      "Double-Knee / Reinforced Work Pants",
+      "Track Pants",
+      "Woven Track / Windbreaker Pants",
+      "Sweatpants / Joggers",
+      "Training / Running Pants",
+      "Football Club Track / Training Pants",
+      "Golf / Tennis Performance Trousers",
+      "Outdoor / Hiking Trousers",
+      "Compression / Training Tights",
+      "Tech Pants / Technical Trousers",
+      "Bib Overalls / Dungarees",
+      "Corduroy Trousers",
+      "Ski / Insulated Trousers"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Classic & Preppy",
+     "label": "Classic & Preppy",
+     "brands": [
+      "Ralph Lauren",
+      "Tommy Hilfiger",
+      "Lacoste",
+      "Nautica",
+      "Chaps",
+      "U.S. Polo Assn.",
+      "Dockers",
+      "J.Crew",
+      "GANT",
+      "GAP",
+      "Levi's",
+      "Lee"
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Sportswear & Activewear",
+     "brands": [
+      "Adidas",
+      "Nike",
+      "Champion",
+      "Reebok",
+      "Puma",
+      "Jordan",
+      "Under Armour",
+      "Lululemon",
+      "Gymshark",
+      "Vuori",
+      "Ellesse",
+      "Fila",
+      "Kappa",
+      "Umbro",
+      "Starter",
+      "Russell Athletic"
+     ]
+    },
+    {
+     "style": "Outdoor & Technical / Gorpcore",
+     "label": "Outdoor & Technical",
+     "brands": [
+      "Columbia",
+      "The North Face",
+      "L.L.Bean",
+      "Patagonia",
+      "Eddie Bauer",
+      "Berghaus"
+     ]
+    },
+    {
+     "style": "Workwear & Utility",
+     "label": "Workwear & Utility",
+     "brands": [
+      "Carhartt",
+      "Dickies",
+      "Wrangler"
+     ]
+    },
+    {
+     "style": "Streetwear",
+     "label": "Streetwear",
+     "brands": [
+      "Carhartt WIP"
+     ]
+    }
+   ],
+   "descriptors": [
+    {
+     "group": "Fabric",
+     "kind": "descriptor",
+     "terms": [
+      "Duck Canvas",
+      "Twill",
+      "Ripstop",
+      "Polyester Tricot",
+      "Fleece",
+      "Corduroy",
+      "Nylon Stretch"
+     ]
+    },
+    {
+     "group": "Fit",
+     "kind": "descriptor",
+     "terms": [
+      "Slim",
+      "Regular",
+      "Relaxed",
+      "Loose / Baggy"
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "name": "Jeans & Denim Wear",
+   "menuColumn": "1",
+   "intro": "Classic Levi's to embellished Y2K statement denim — jeans, jorts and denim jackets.",
+   "groups": [
+    {
+     "key": "",
+     "label": "",
+     "subcategories": [
+      "Regular / Straight Jeans",
+      "Slim / Skinny Jeans",
+      "Relaxed / Loose Jeans",
+      "Baggy / Wide-Leg / Hip-Hop / Skate Jeans",
+      "Bootcut / Flared Jeans",
+      "Y2K / Y2K-Style / McBling Jeans",
+      "Mall Goth / Grunge Jeans",
+      "Statement / Embellished / Embroidered / Rhinestoned / Studded Jeans",
+      "Tattoo-Print / Tribal-Print Jeans",
+      "Colour-Block / Contrast-Stitching Jeans",
+      "Denim Jackets",
+      "Truly Vintage Jeans & Denim Jackets"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Denimwear",
+     "label": "Denimwear — Classic Everyday Denim",
+     "brands": [
+      "Levi's",
+      "Lee",
+      "Wrangler",
+      "GAP",
+      "Aeropostale"
+     ]
+    },
+    {
+     "style": "Denimwear",
+     "label": "Denimwear — Embellished & Statement Denim",
+     "brands": [
+      "Miss Me",
+      "Rock Revival",
+      "True Religion",
+      "Diesel",
+      "Miss Sixty",
+      "Guess",
+      "Vigoss"
+     ]
+    },
+    {
+     "style": "Streetwear",
+     "label": "Streetwear — Hip-Hop",
+     "brands": [
+      "Southpole",
+      "FUBU",
+      "Coogi",
+      "Rocawear",
+      "Baby Phat"
+     ]
+    },
+    {
+     "style": "Streetwear",
+     "label": "Streetwear — Skatewear",
+     "brands": [
+      "JNCO",
+      "Empyre"
+     ]
+    },
+    {
+     "style": "Streetwear",
+     "label": "Streetwear — Contemporary / Alternative",
+     "brands": [
+      "Urban Outfitters",
+      "Ed Hardy",
+      "Affliction"
+     ]
+    },
+    {
+     "style": "Workwear & Utility",
+     "label": "Workwear & Utility — Heritage Denim",
+     "brands": [
+      "Carhartt",
+      "Dickies"
+     ]
+    },
+    {
+     "style": "Y2K & Vintage",
+     "label": "Y2K & Vintage — Y2K / McBling",
+     "brands": [
+      "Von Dutch",
+      "bebe",
+      "Angels",
+      "Mudd"
+     ]
+    },
+    {
+     "style": "Y2K & Vintage",
+     "label": "Y2K & Vintage — 1990s Vintage",
+     "brands": [
+      "Old Navy"
+     ]
+    }
+   ],
+   "descriptors": [
+    {
+     "group": "Rise",
+     "kind": "descriptor",
+     "terms": [
+      "Low-Rise",
+      "Mid-Rise",
+      "High-Rise"
+     ]
+    },
+    {
+     "group": "Wash",
+     "kind": "descriptor",
+     "terms": [
+      "Light Wash",
+      "Medium Wash",
+      "Dark Wash",
+      "Black Wash",
+      "Distressed"
+     ]
+    },
+    {
+     "group": "Embellishment",
+     "kind": "descriptor",
+     "terms": [
+      "Rhinestone",
+      "Embroidered",
+      "Flap Pockets",
+      "Fleur-de-Lis",
+      "Horseshoe Pockets",
+      "Studded",
+      "Contrast Stitching",
+      "Big T / Super T Stitch"
+     ]
+    },
+    {
+     "group": "Fit",
+     "kind": "descriptor",
+     "terms": [
+      "Straight",
+      "Slim / Skinny",
+      "Relaxed",
+      "Baggy / Wide-Leg",
+      "Bootcut / Flare"
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "name": "Sweatshirts & Hoodies",
+   "menuColumn": "1",
+   "intro": "Crewnecks, hoodies and zips — plain to spellout, college, band, motorsport and more.",
+   "groups": [
+    {
+     "key": "",
+     "label": "",
+     "subcategories": [
+      "Crewneck / Round-Neck Sweatshirts",
+      "Pullover / Overhead Hoodies",
+      "Zip-Up / Full-Zip Hoodies",
+      "Half-Zip / Quarter-Zip Sweatshirts",
+      "Full-Zip Sweatshirts — Without Hood"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Classic & Preppy",
+     "label": "Classic & Preppy",
+     "brands": [
+      "Ralph Lauren",
+      "Tommy Hilfiger",
+      "Lacoste",
+      "Nautica",
+      "Chaps",
+      "U.S. Polo Assn.",
+      "GAP",
+      "Levi's",
+      "Lee"
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Sportswear & Activewear",
+     "brands": [
+      "Nike",
+      "Adidas",
+      "Champion",
+      "Reebok",
+      "Puma",
+      "Jordan",
+      "Under Armour",
+      "Lululemon",
+      "Gymshark",
+      "Alo",
+      "Vuori",
+      "Ellesse",
+      "Fila",
+      "Kappa",
+      "Umbro",
+      "Starter",
+      "Russell Athletic"
+     ]
+    },
+    {
+     "style": "Outdoor & Technical / Gorpcore",
+     "label": "Outdoor & Technical",
+     "brands": [
+      "Patagonia",
+      "The North Face",
+      "Columbia",
+      "L.L.Bean",
+      "Eddie Bauer"
+     ]
+    },
+    {
+     "style": "Workwear & Utility",
+     "label": "Workwear & Utility",
+     "brands": [
+      "Carhartt",
+      "Dickies"
+     ]
+    },
+    {
+     "style": "Streetwear",
+     "label": "Streetwear — Skatewear",
+     "brands": [
+      "Vans"
+     ]
+    },
+    {
+     "style": "Surf & Beachwear",
+     "label": "Surf & Beachwear",
+     "brands": [
+      "Rip Curl",
+      "Billabong",
+      "O'Neill",
+      "Oakley",
+      "Quiksilver",
+      "Hurley"
+     ]
+    },
+    {
+     "style": "Sports Fanwear & Official Merchandise",
+     "label": "Sports Fanwear & Official Merchandise",
+     "brands": [
+      "NHL",
+      "NFL",
+      "NBA",
+      "MLB"
+     ]
+    },
+    {
+     "style": "Streetwear",
+     "label": "Graphic & Music Merchandise",
+     "brands": [
+      "Graphic Design"
+     ]
+    },
+    {
+     "style": "Y2K & Vintage",
+     "label": "Assigned by garment style",
+     "brands": [
+      "Unbranded"
+     ]
+    }
+   ],
+   "descriptors": [
+    {
+     "group": "Design group",
+     "kind": "design-group",
+     "terms": [
+      "Plain / Minimal",
+      "Chest Logo / Small Logo",
+      "Spellout",
+      "Large Logo",
+      "Graphic / Printed",
+      "Theme-Led"
+     ]
+    },
+    {
+     "group": "Graphic theme",
+     "kind": "descriptor",
+     "terms": [
+      "University / College",
+      "Sports Teams / Fanwear",
+      "Music / Band / Tour",
+      "Anime / Manga",
+      "Disney / Cartoon / Character",
+      "Comics / Superhero",
+      "Movie / TV",
+      "Video Games",
+      "Motorsport / NASCAR / F1",
+      "Motorcycle / Biker",
+      "USA / Cities / Souvenir",
+      "Nature / Wildlife"
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "name": "Knitwear",
+   "menuColumn": "2",
+   "intro": "Crew, V-neck, quarter-zip, cable and Fair Isle knits, cardigans and sweater vests.",
+   "groups": [
+    {
+     "key": "A",
+     "label": "Pullover Sweaters / Jumpers",
+     "subcategories": [
+      "Classic Crewneck / Round-Neck Sweaters",
+      "V-Neck Sweaters",
+      "Roll-Neck / Turtleneck / Mock-Neck Sweaters",
+      "Half-Zip / Quarter-Zip Sweaters",
+      "Knitted Polo / Polo-Collar Sweaters"
+     ]
+    },
+    {
+     "key": "B",
+     "label": "Cardigans / Full-Zip Knitwear",
+     "subcategories": [
+      "Classic / Button-Front Cardigans",
+      "Full-Zip Cardigans / Full-Zip Knitwear"
+     ]
+    },
+    {
+     "key": "C",
+     "label": "Sleeveless Knitwear",
+     "subcategories": [
+      "Sweater Vests / Knitted Vests / Slipovers"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Classic & Preppy",
+     "label": "Classic & Preppy / Ivy",
+     "brands": [
+      "Ralph Lauren",
+      "Tommy Hilfiger",
+      "Lacoste",
+      "GANT",
+      "Brooks Brothers",
+      "Nautica",
+      "Chaps",
+      "U.S. Polo Assn."
+     ]
+    },
+    {
+     "style": "Outdoor & Technical / Gorpcore",
+     "label": "Heritage Outdoor / Casual Knitwear",
+     "brands": [
+      "L.L.Bean",
+      "Eddie Bauer",
+      "Woolrich"
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Athleisure / Contemporary Casual",
+     "brands": [
+      "Lululemon"
+     ]
+    },
+    {
+     "style": "Y2K & Vintage",
+     "label": "Y2K / Y2K-Style Knitwear",
+     "brands": [
+      "Unbranded Y2K"
+     ]
+    }
+   ],
+   "descriptors": [
+    {
+     "group": "Knit construction",
+     "kind": "descriptor",
+     "terms": [
+      "Cable-Knit",
+      "Ribbed",
+      "Textured",
+      "3D-Textured",
+      "Jacquard"
+     ]
+    },
+    {
+     "group": "Knit gauge",
+     "kind": "descriptor",
+     "terms": [
+      "Fine-Knit",
+      "Chunky Knit"
+     ]
+    },
+    {
+     "group": "Garment weight",
+     "kind": "descriptor",
+     "terms": [
+      "Lightweight",
+      "Midweight",
+      "Heavyweight Knit"
+     ]
+    },
+    {
+     "group": "Pattern / colour",
+     "kind": "design-group",
+     "terms": [
+      "Fair Isle",
+      "Nordic",
+      "Argyle",
+      "Geometric",
+      "Striped",
+      "Colour-Block"
+     ]
+    },
+    {
+     "group": "Logo / graphic",
+     "kind": "design-group",
+     "terms": [
+      "Minimal",
+      "Small Logo",
+      "Large Logo",
+      "Statement",
+      "Graphic Knit",
+      "Character Knit",
+      "Christmas / Holiday"
+     ]
+    },
+    {
+     "group": "Heritage / preppy",
+     "kind": "descriptor",
+     "terms": [
+      "Cricket",
+      "Ivy",
+      "Heritage",
+      "Preppy",
+      "Grandpa"
+     ]
+    },
+    {
+     "group": "Statement style",
+     "kind": "descriptor",
+     "terms": [
+      "Crazy / Funky",
+      "Multicolour 3D Knit",
+      "Coogi-Style"
+     ]
+    },
+    {
+     "group": "Fibre",
+     "kind": "descriptor",
+     "terms": [
+      "Cotton",
+      "Wool Blend",
+      "Cashmere Blend",
+      "Acrylic"
+     ]
+    },
+    {
+     "group": "Fit",
+     "kind": "descriptor",
+     "terms": [
+      "Regular",
+      "Oversized"
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "name": "Track Jackets",
+   "menuColumn": "2",
+   "intro": "Classic, velour, training and official football-club track jackets.",
+   "groups": [
+    {
+     "key": "",
+     "label": "",
+     "subcategories": [
+      "Classic Track Jackets",
+      "Performance / Training Track Jackets",
+      "Velour Track Jackets",
+      "Official Football Club Track Jackets",
+      "Team / Warm-Up Jackets"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Classic & Preppy",
+     "label": "Classic & Preppy",
+     "brands": [
+      "Lacoste",
+      "Ralph Lauren",
+      "Tommy Hilfiger"
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Sportswear & Activewear",
+     "brands": [
+      "Adidas",
+      "Nike",
+      "Champion",
+      "Reebok",
+      "Puma",
+      "Starter",
+      "Jordan",
+      "Lululemon",
+      "Gymshark",
+      "Under Armour",
+      "Umbro",
+      "Fila",
+      "Kappa",
+      "Russell Athletic",
+      "New Balance",
+      "ASICS"
+     ]
+    },
+    {
+     "style": "Outdoor & Technical / Gorpcore",
+     "label": "Outdoor & Technical — Track Styles",
+     "brands": [
+      "Columbia",
+      "The North Face"
+     ]
+    },
+    {
+     "style": "Y2K & Vintage",
+     "label": "Y2K / McBling — Velour Sportswear",
+     "brands": [
+      "Juicy Couture"
+     ]
+    },
+    {
+     "style": "Sports Fanwear & Official Merchandise",
+     "label": "Sports Fanwear & Official Merchandise",
+     "brands": [
+      "NHL",
+      "NFL",
+      "NBA",
+      "MLB"
+     ]
+    }
+   ],
+   "descriptors": [
+    {
+     "group": "Design group",
+     "kind": "design-group",
+     "terms": [
+      "Stripe-Detail",
+      "Colour-Block",
+      "Multicolour",
+      "Chest Logo"
+     ]
+    },
+    {
+     "group": "Fabric",
+     "kind": "descriptor",
+     "terms": [
+      "Polyester Tricot",
+      "Woven Polyester / Nylon",
+      "Velour",
+      "Lined"
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "name": "Fleece Jackets",
+   "menuColumn": "2",
+   "intro": "Polar, sherpa, Denali, Retro-X and technical fleece — the gorpcore essentials.",
+   "groups": [
+    {
+     "key": "",
+     "label": "",
+     "subcategories": [
+      "Classic / Polar Fleece",
+      "Sherpa / High-Pile Fleece",
+      "Sweater Fleece / Knit-Look Fleece",
+      "Technical / Performance Fleece",
+      "Panelled / Hybrid Fleece"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Outdoor & Technical / Gorpcore",
+     "label": "Outdoor & Technical / Gorpcore",
+     "brands": [
+      "Patagonia",
+      "The North Face",
+      "Columbia",
+      "Berghaus",
+      "L.L.Bean",
+      "Eddie Bauer"
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Sportswear & Activewear",
+     "brands": [
+      "Nike",
+      "Adidas",
+      "Lululemon"
+     ]
+    },
+    {
+     "style": "Y2K & Vintage",
+     "label": "Y2K Style",
+     "brands": [
+      "Unbranded Y2K"
+     ]
+    },
+    {
+     "style": "Outdoor & Technical / Gorpcore",
+     "label": "Mixed — by garment style",
+     "brands": [
+      "Mix Brand / Unbranded"
+     ]
+    }
+   ],
+   "descriptors": [
+    {
+     "group": "Design group",
+     "kind": "design-group",
+     "terms": [
+      "Crazy",
+      "Colour-Block",
+      "All-Over Print",
+      "Southwestern",
+      "Tribal-Style"
+     ]
+    },
+    {
+     "group": "Zip",
+     "kind": "descriptor",
+     "terms": [
+      "Full-Zip",
+      "Half / Quarter-Zip",
+      "Snap Placket",
+      "Pullover"
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "name": "Jackets",
+   "menuColumn": "2",
+   "intro": "Shells, 3-in-1s, work jackets, bombers, Harringtons, varsity and gilets. Puffers have their own section.",
+   "groups": [
+    {
+     "key": "A",
+     "label": "Lightweight / Technical / Shell Jackets",
+     "subcategories": [
+      "Windbreakers",
+      "Rain Jackets / Waterproof Shells",
+      "Softshell Jackets",
+      "Anoraks / Pullover Jackets",
+      "Ski / Snowboard Jackets",
+      "3-in-1 / Removable-Liner Jackets"
+     ]
+    },
+    {
+     "key": "B",
+     "label": "Insulated / Winter Jackets",
+     "subcategories": [
+      "Quilted / Padded / Insulated Jackets",
+      "Parkas / Outdoor Parkas / Winter Coats"
+     ]
+    },
+    {
+     "key": "C",
+     "label": "Casual / Bomber / Varsity Jackets",
+     "subcategories": [
+      "Coach Jackets",
+      "Bomber / Flight Jackets",
+      "Harrington / Blouson Jackets",
+      "Varsity / Baseball Jackets",
+      "Non-Denim Trucker Jackets",
+      "Overshirts / Shirt Jackets / Shackets"
+     ]
+    },
+    {
+     "key": "D",
+     "label": "Workwear / Utility Jackets",
+     "subcategories": [
+      "Heavy Workwear / Duck-Canvas Jackets",
+      "Lightweight Work / Utility Jackets"
+     ]
+    },
+    {
+     "key": "E",
+     "label": "Gilets / Vests / Bodywarmers",
+     "subcategories": [
+      "Puffer Gilets / Puffer Vests",
+      "Quilted / Padded / Insulated Gilets",
+      "Softshell / Performance Gilets",
+      "Canvas / Workwear Vests"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Classic & Preppy",
+     "label": "Classic & Preppy / Heritage Casual",
+     "brands": [
+      "Ralph Lauren",
+      "Tommy Hilfiger",
+      "Lacoste",
+      "Nautica",
+      "Chaps",
+      "U.S. Polo Assn.",
+      "GAP",
+      "Barbour"
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Sportswear & Activewear",
+     "brands": [
+      "Adidas",
+      "Nike",
+      "Champion",
+      "Reebok",
+      "Puma",
+      "Jordan",
+      "Under Armour",
+      "Lululemon",
+      "Gymshark",
+      "Ellesse",
+      "Fila",
+      "Kappa",
+      "Umbro",
+      "Russell Athletic"
+     ]
+    },
+    {
+     "style": "Outdoor & Technical / Gorpcore",
+     "label": "Outdoor & Technical / Heritage Outdoor",
+     "brands": [
+      "Patagonia",
+      "The North Face",
+      "Columbia",
+      "Berghaus",
+      "Jack Wolfskin",
+      "Nike ACG",
+      "Napapijri",
+      "Oakley",
+      "L.L.Bean",
+      "Eddie Bauer",
+      "Woolrich",
+      "Timberland"
+     ]
+    },
+    {
+     "style": "Workwear & Utility",
+     "label": "Workwear & Utility",
+     "brands": [
+      "Carhartt",
+      "Dickies",
+      "Levi's"
+     ]
+    },
+    {
+     "style": "Streetwear",
+     "label": "Streetwear / Skatewear / Urban Utility",
+     "brands": [
+      "Carhartt WIP",
+      "Vans",
+      "G-Star RAW"
+     ]
+    },
+    {
+     "style": "Surf & Beachwear",
+     "label": "Surf & Board Sports",
+     "brands": [
+      "Rip Curl",
+      "Billabong",
+      "O'Neill",
+      "Quiksilver",
+      "Hurley",
+      "Volcom"
+     ]
+    },
+    {
+     "style": "Sports Fanwear & Official Merchandise",
+     "label": "Sports Fanwear & Official Merchandise",
+     "brands": [
+      "Starter",
+      "Mitchell & Ness",
+      "Majestic",
+      "NHL",
+      "NFL",
+      "NBA",
+      "MLB"
+     ]
+    },
+    {
+     "style": "Y2K & Vintage",
+     "label": "Y2K Style",
+     "brands": [
+      "Unbranded Y2K"
+     ]
+    }
+   ],
+   "descriptors": [
+    {
+     "group": "Material / fabric technology",
+     "kind": "descriptor",
+     "terms": [
+      "Nylon",
+      "Canvas",
+      "Duck Canvas",
+      "GORE-TEX",
+      "DryVent / HyVent",
+      "Softshell"
+     ]
+    },
+    {
+     "group": "Hood",
+     "kind": "descriptor",
+     "terms": [
+      "Hooded",
+      "Detachable Hood",
+      "No Hood"
+     ]
+    },
+    {
+     "group": "Weather protection",
+     "kind": "descriptor",
+     "terms": [
+      "Water-Resistant",
+      "Wind-Resistant",
+      "Waterproof"
+     ]
+    },
+    {
+     "group": "Construction / design",
+     "kind": "descriptor",
+     "terms": [
+      "Diamond-Quilt",
+      "Multi-Pocket",
+      "Colour-Block",
+      "Lined"
+     ]
+    },
+    {
+     "group": "Use / style",
+     "kind": "descriptor",
+     "terms": [
+      "Technical",
+      "Mountain",
+      "Alpine",
+      "Heritage Outdoor"
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "name": "Puffer Jackets",
+   "menuColumn": "2",
+   "intro": "Everyday, packable, expedition and long puffers — TNF Nuptse to Moncler, sorted by fill.",
+   "groups": [
+    {
+     "key": "A",
+     "label": "Classic / Everyday Puffers",
+     "subcategories": [
+      "Classic / Short Puffer Jackets"
+     ]
+    },
+    {
+     "key": "B",
+     "label": "Lightweight / Packable Puffers",
+     "subcategories": [
+      "Lightweight / Packable Puffer Jackets"
+     ]
+    },
+    {
+     "key": "C",
+     "label": "Heavyweight / Technical / Expedition Puffers",
+     "subcategories": [
+      "Heavyweight / Winter Puffer Jackets",
+      "Technical / Performance Puffers",
+      "Expedition / Mountaineering / Alpine Puffers"
+     ]
+    },
+    {
+     "key": "D",
+     "label": "Long Puffer Coats / Parkas",
+     "subcategories": [
+      "Long Puffer Coats / Puffer Parkas",
+      "Technical / Expedition Puffer Coats / Down Parkas"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Classic & Preppy",
+     "label": "Classic & Preppy",
+     "brands": [
+      "Ralph Lauren",
+      "Tommy Hilfiger",
+      "Lacoste",
+      "Nautica",
+      "Chaps",
+      "U.S. Polo Assn."
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Sportswear & Activewear",
+     "brands": [
+      "Adidas",
+      "Nike",
+      "Champion",
+      "Reebok",
+      "Puma",
+      "Jordan",
+      "Under Armour",
+      "Lululemon",
+      "Ellesse",
+      "Fila",
+      "Kappa",
+      "Umbro",
+      "Starter"
+     ]
+    },
+    {
+     "style": "Outdoor & Technical / Gorpcore",
+     "label": "Outdoor & Technical / Heritage Outdoor",
+     "brands": [
+      "The North Face",
+      "Patagonia",
+      "Columbia",
+      "Berghaus",
+      "Montbell",
+      "Canada Goose",
+      "Jack Wolfskin",
+      "Nike ACG",
+      "Napapijri",
+      "Eddie Bauer",
+      "L.L.Bean"
+     ]
+    },
+    {
+     "style": "Luxury",
+     "label": "Luxury / Alpine-Inspired Fashion",
+     "brands": [
+      "Moncler"
+     ]
+    },
+    {
+     "style": "Surf & Beachwear",
+     "label": "Surf & Snow / Board Sports",
+     "brands": [
+      "Quiksilver"
+     ]
+    }
+   ],
+   "descriptors": [
+    {
+     "group": "Insulation",
+     "kind": "descriptor",
+     "terms": [
+      "Down",
+      "Synthetic"
+     ]
+    },
+    {
+     "group": "Fill power",
+     "kind": "descriptor",
+     "terms": [
+      "500 Fill",
+      "550 Fill",
+      "600 Fill",
+      "650 Fill",
+      "700 Fill",
+      "800 Fill",
+      "850 Fill",
+      "900 Fill"
+     ]
+    },
+    {
+     "group": "Length",
+     "kind": "descriptor",
+     "terms": [
+      "Waist-Length",
+      "Hip-Length",
+      "Thigh-Length",
+      "Knee-Length",
+      "Full-Length"
+     ]
+    },
+    {
+     "group": "Hood",
+     "kind": "descriptor",
+     "terms": [
+      "Hooded",
+      "Non-Hooded",
+      "Detachable Hood"
+     ]
+    },
+    {
+     "group": "Collar",
+     "kind": "descriptor",
+     "terms": [
+      "High-Neck",
+      "Funnel-Neck"
+     ]
+    },
+    {
+     "group": "Construction",
+     "kind": "descriptor",
+     "terms": [
+      "Baffled"
+     ]
+    },
+    {
+     "group": "Fit / silhouette",
+     "kind": "descriptor",
+     "terms": [
+      "Boxy",
+      "Oversized"
+     ]
+    },
+    {
+     "group": "Colour / design",
+     "kind": "design-group",
+     "terms": [
+      "Colour-Block",
+      "Solid"
+     ]
+    },
+    {
+     "group": "Technical use",
+     "kind": "descriptor",
+     "terms": [
+      "Ski",
+      "Mountain",
+      "Alpine",
+      "Mountaineering",
+      "Expedition",
+      "Extreme-Cold"
+     ]
+    },
+    {
+     "group": "Shell technology",
+     "kind": "descriptor",
+     "terms": [
+      "HyVent",
+      "DryVent",
+      "Ripstop"
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "name": "Activewear & Athleisure",
+   "menuColumn": "2",
+   "intro": "Lululemon, Alo, Vuori and Gymshark — leggings, bras, tech tops, joggers and layers.",
+   "groups": [
+    {
+     "key": "A",
+     "label": "Leggings / Studio Essentials",
+     "subcategories": [
+      "Leggings / Yoga Pants / Training & Running Tights",
+      "Flared / Bootcut Yoga Pants",
+      "Biker / Cycling-Style / Fitted Workout Shorts",
+      "Sports Bras / Longline Sports Bras",
+      "Active Tanks / Crop Tops / Bra Tanks"
+     ]
+    },
+    {
+     "key": "B",
+     "label": "Training / Running / Court Apparel",
+     "subcategories": [
+      "Performance / Training T-Shirts",
+      "Long-Sleeve / Technical Training Tops",
+      "Performance / Golf / Tennis Polos",
+      "Running / Training / Gym Shorts",
+      "Tennis / Golf / Athletic Skirts & Skorts"
+     ]
+    },
+    {
+     "key": "C",
+     "label": "Joggers / Sweatpants / Lifestyle Bottoms",
+     "subcategories": [
+      "Performance / Training Joggers",
+      "Sweatpants / Fleece Joggers / Lounge Pants",
+      "Studio / Travel / Relaxed / Wide-Leg Pants",
+      "Technical Casual / Commuter / Golf Trousers"
+     ]
+    },
+    {
+     "key": "D",
+     "label": "Sweatshirts / Hoodies / Active Layers",
+     "subcategories": [
+      "Crewneck / Half-Zip / Quarter-Zip Sweatshirts",
+      "Pullover / Full-Zip Hoodies",
+      "Fitted Studio / Training / Running Jackets",
+      "Lightweight / Weather-Resistant Active Jackets"
+     ]
+    },
+    {
+     "key": "E",
+     "label": "Selected Additional Garments",
+     "subcategories": [
+      "Active / Tennis Dresses",
+      "Workout Bodysuits / Unitards / One-Pieces",
+      "Insulated Jackets / Puffers / Gilets",
+      "Matching Sets / Coordinated Outfits"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Yoga / Studio / Running / Everyday Athleisure",
+     "brands": [
+      "Lululemon"
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Studio / Yoga / Fashion Athleisure",
+     "brands": [
+      "Alo"
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Performance / Recovery / Everyday Athleisure",
+     "brands": [
+      "Vuori"
+     ]
+    },
+    {
+     "style": "Sportswear & Activewear",
+     "label": "Gym / Strength Training / Fitness Athleisure",
+     "brands": [
+      "Gymshark"
+     ]
+    }
+   ],
+   "descriptors": [
+    {
+     "group": "Use",
+     "kind": "descriptor",
+     "terms": [
+      "Yoga / Studio",
+      "Running",
+      "Gym / Training",
+      "Recovery / Lounge",
+      "Golf / Tennis"
+     ]
+    },
+    {
+     "group": "Fabric",
+     "kind": "descriptor",
+     "terms": [
+      "Nulu / Buttery-Soft",
+      "Compression",
+      "Seamless",
+      "Scuba / Cotton Fleece",
+      "Technical Knit"
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "name": "Bags (Women)",
+   "menuColumn": "2",
+   "intro": "Coach, GG&L, Vintage Guess, Kathy Van Zeeland and more — everyday to McBling.",
+   "groups": [
+    {
+     "key": "A",
+     "label": "Shoulder / Everyday Bags",
+     "subcategories": [
+      "Classic Shoulder / Flap Bags",
+      "Baguette / East–West Shoulder Bags",
+      "Hobo / Slouch / Crescent Bags",
+      "Crossbody / Camera / Messenger Bags",
+      "Multi-Pocket / Cargo / Utility Bags"
+     ]
+    },
+    {
+     "key": "B",
+     "label": "Structured / Top-Handle Bags",
+     "subcategories": [
+      "Satchel / Structured Top-Handle Bags",
+      "Bowling / Bowler / Barrel Bags",
+      "Bucket / Drawstring Bags"
+     ]
+    },
+    {
+     "key": "C",
+     "label": "Totes / Carryalls",
+     "subcategories": [
+      "Tote / Shopper / Everyday Carryall Bags",
+      "Foldaway / Packable Tote Bags"
+     ]
+    },
+    {
+     "key": "D",
+     "label": "Small / Occasion Bags",
+     "subcategories": [
+      "Clutch / Evening Bags",
+      "Wristlet Bags / Small Carry Pouches"
+     ]
+    },
+    {
+     "key": "E",
+     "label": "Selected Additional Bags",
+     "subcategories": [
+      "Fashion Backpacks / Mini Backpacks",
+      "Weekender / Travel Carryalls"
+     ]
+    }
+   ],
+   "brandSets": [
+    {
+     "style": "Classic & Preppy",
+     "label": "Heritage Leather / Classic Casual",
+     "brands": [
+      "Coach",
+      "Dooney & Bourke",
+      "Longchamp"
+     ]
+    },
+    {
+     "style": "Y2K & Vintage",
+     "label": "Y2K Utility / McBling / Boho Glam",
+     "brands": [
+      "George Gina & Lucy",
+      "Vintage Guess",
+      "Kathy Van Zeeland",
+      "Juicy Couture"
+     ]
+    },
+    {
+     "style": "Luxury",
+     "label": "Contemporary Branded",
+     "brands": [
+      "Michael Kors",
+      "Marc Jacobs",
+      "Kate Spade"
+     ]
+    },
+    {
+     "style": "Y2K & Vintage",
+     "label": "Unbranded — Vintage / Y2K / Vintage Style / Y2K Style",
+     "brands": [
+      "Unbranded Vintage",
+      "Unbranded Y2K"
+     ]
+    },
+    {
+     "style": "Luxury",
+     "label": "Luxury — available on request",
+     "brands": [
+      "Dior",
+      "Gucci",
+      "Louis Vuitton"
+     ]
+    }
+   ],
+   "descriptors": [
+    {
+     "group": "Size",
+     "kind": "descriptor",
+     "terms": [
+      "Mini",
+      "Small",
+      "Medium",
+      "Large",
+      "Oversized"
+     ]
+    },
+    {
+     "group": "Material",
+     "kind": "descriptor",
+     "terms": [
+      "Leather",
+      "Signature Canvas / Jacquard",
+      "Nylon",
+      "Denim",
+      "Velour / Terry",
+      "Faux Leather / Patent-Look"
+     ]
+    },
+    {
+     "group": "Detail",
+     "kind": "design-group",
+     "terms": [
+      "Monogram / Logo",
+      "Buckle",
+      "Studs",
+      "Rhinestones",
+      "Charms",
+      "Metallic",
+      "Animal Print",
+      "Fringe",
+      "Patchwork",
+      "Embroidered"
+     ]
+    },
+    {
+     "group": "Production",
+     "kind": "descriptor",
+     "terms": [
+      "Original Production",
+      "Later Reissue"
+     ]
+    }
+   ]
+  }
+ ],
+ "brands": [
+  {
+   "name": "Abercrombie & Fitch",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    3,
+    4
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Adidas",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    8,
+    10,
+    11,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Aeropostale",
+   "styles": [
+    "Denimwear"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Affliction",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Akademiks",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    5
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Alo",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    8,
+    14
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Angels",
+   "styles": [
+    "Y2K & Vintage"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "ASICS",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    10
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Baby Phat",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Barbour",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "bebe",
+   "styles": [
+    "Y2K & Vintage"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Berghaus",
+   "styles": [
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    6,
+    11,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Billabong",
+   "styles": [
+    "Surf & Beachwear"
+   ],
+   "sections": [
+    1,
+    4,
+    5,
+    8,
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "BOSS",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    4
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Brooks Brothers",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    3,
+    4,
+    9
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Canada Goose",
+   "styles": [
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Canterbury",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    3
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Carhartt",
+   "styles": [
+    "Workwear & Utility"
+   ],
+   "sections": [
+    1,
+    4,
+    5,
+    6,
+    7,
+    8,
+    12
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Carhartt WIP",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    4,
+    5,
+    6,
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Champion",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    1,
+    3,
+    5,
+    6,
+    8,
+    10,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Chaps",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    1,
+    3,
+    6,
+    8,
+    9,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Charles Tyrwhitt",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    4
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Coach",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    15
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Columbia",
+   "styles": [
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    11,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Coogi",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "COS",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    4
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Dickies",
+   "styles": [
+    "Workwear & Utility"
+   ],
+   "sections": [
+    1,
+    4,
+    5,
+    6,
+    7,
+    8,
+    12
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Diesel",
+   "styles": [
+    "Denimwear"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Dior",
+   "styles": [
+    "Luxury"
+   ],
+   "sections": [
+    15
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": true
+  },
+  {
+   "name": "Dockers",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    6
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Dooney & Bourke",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    15
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Ecko",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    5
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Ed Hardy",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Eddie Bauer",
+   "styles": [
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    4,
+    6,
+    8,
+    9,
+    11,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Ellesse",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    3,
+    6,
+    8,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Empyre",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Evisu",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    5
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Fila",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    1,
+    6,
+    8,
+    10,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Filson",
+   "styles": [
+    "Workwear & Utility"
+   ],
+   "sections": [
+    4
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "FUBU",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    5,
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "G-Star RAW",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "GANT",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    3,
+    4,
+    6,
+    9
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "GAP",
+   "styles": [
+    "Classic & Preppy",
+    "Denimwear"
+   ],
+   "sections": [
+    1,
+    3,
+    6,
+    7,
+    8,
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "George Gina & Lucy",
+   "styles": [
+    "Y2K & Vintage"
+   ],
+   "sections": [
+    15
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Graphic Design",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    8
+   ],
+   "kind": "stock-group",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Gucci",
+   "styles": [
+    "Luxury"
+   ],
+   "sections": [
+    15
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": true
+  },
+  {
+   "name": "Guess",
+   "styles": [
+    "Denimwear"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Gymshark",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    1,
+    5,
+    6,
+    8,
+    10,
+    12,
+    14
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "HUGO",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    4
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Hurley",
+   "styles": [
+    "Surf & Beachwear"
+   ],
+   "sections": [
+    1,
+    4,
+    5,
+    8,
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Ivy League Names",
+   "styles": [
+    "Sports Fanwear & Official Merchandise"
+   ],
+   "sections": [
+    3
+   ],
+   "kind": "licence",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "J.Crew",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    4,
+    6
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Jack Wolfskin",
+   "styles": [
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "JNCO",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    5,
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Jordan",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    1,
+    5,
+    6,
+    8,
+    10,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Juicy Couture",
+   "styles": [
+    "Y2K & Vintage"
+   ],
+   "sections": [
+    10,
+    15
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Kappa",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    3,
+    6,
+    8,
+    10,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Karl Kani",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    5
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Kate Spade",
+   "styles": [
+    "Luxury"
+   ],
+   "sections": [
+    15
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Kathy Van Zeeland",
+   "styles": [
+    "Y2K & Vintage"
+   ],
+   "sections": [
+    15
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "L.L.Bean",
+   "styles": [
+    "Outdoor & Technical / Gorpcore",
+    "Classic & Preppy"
+   ],
+   "sections": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    11,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Lacoste",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Lee",
+   "styles": [
+    "Denimwear",
+    "Classic & Preppy"
+   ],
+   "sections": [
+    5,
+    6,
+    7,
+    8
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Levi's",
+   "styles": [
+    "Classic & Preppy",
+    "Denimwear",
+    "Workwear & Utility"
+   ],
+   "sections": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    12
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Longchamp",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    15
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Louis Vuitton",
+   "styles": [
+    "Luxury"
+   ],
+   "sections": [
+    15
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": true
+  },
+  {
+   "name": "Lululemon",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Majestic",
+   "styles": [
+    "Sports Fanwear & Official Merchandise"
+   ],
+   "sections": [
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Marc Jacobs",
+   "styles": [
+    "Luxury"
+   ],
+   "sections": [
+    15
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Michael Kors",
+   "styles": [
+    "Luxury"
+   ],
+   "sections": [
+    15
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Miss Me",
+   "styles": [
+    "Denimwear"
+   ],
+   "sections": [
+    5,
+    7
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Miss Sixty",
+   "styles": [
+    "Denimwear"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Mitchell & Ness",
+   "styles": [
+    "Sports Fanwear & Official Merchandise"
+   ],
+   "sections": [
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Mix Brand / Unbranded",
+   "styles": [
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    11
+   ],
+   "kind": "stock-group",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "MLB",
+   "styles": [
+    "Sports Fanwear & Official Merchandise"
+   ],
+   "sections": [
+    8,
+    10,
+    12
+   ],
+   "kind": "licence",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Moncler",
+   "styles": [
+    "Luxury"
+   ],
+   "sections": [
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Montbell",
+   "styles": [
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Mudd",
+   "styles": [
+    "Y2K & Vintage"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Napapijri",
+   "styles": [
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "National Team Labels",
+   "styles": [
+    "Sports Fanwear & Official Merchandise"
+   ],
+   "sections": [
+    3
+   ],
+   "kind": "licence",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Nautica",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "NBA",
+   "styles": [
+    "Sports Fanwear & Official Merchandise"
+   ],
+   "sections": [
+    5,
+    8,
+    10,
+    12
+   ],
+   "kind": "licence",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "New Balance",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    10
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "NFL",
+   "styles": [
+    "Sports Fanwear & Official Merchandise"
+   ],
+   "sections": [
+    8,
+    10,
+    12
+   ],
+   "kind": "licence",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "NHL",
+   "styles": [
+    "Sports Fanwear & Official Merchandise"
+   ],
+   "sections": [
+    8,
+    10,
+    12
+   ],
+   "kind": "licence",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Nike",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    8,
+    10,
+    11,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Nike ACG",
+   "styles": [
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "O'Neill",
+   "styles": [
+    "Surf & Beachwear"
+   ],
+   "sections": [
+    1,
+    4,
+    5,
+    8,
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Oakley",
+   "styles": [
+    "Surf & Beachwear",
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    1,
+    4,
+    5,
+    8,
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Old Navy",
+   "styles": [
+    "Y2K & Vintage"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Patagonia",
+   "styles": [
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    1,
+    4,
+    5,
+    6,
+    8,
+    11,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Pendleton",
+   "styles": [
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    4
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Puma",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    1,
+    3,
+    5,
+    6,
+    8,
+    10,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Quiksilver",
+   "styles": [
+    "Surf & Beachwear"
+   ],
+   "sections": [
+    1,
+    4,
+    5,
+    8,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Ralph Lauren",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Reebok",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    1,
+    3,
+    5,
+    6,
+    8,
+    10,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Rip Curl",
+   "styles": [
+    "Surf & Beachwear"
+   ],
+   "sections": [
+    1,
+    4,
+    5,
+    8,
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Rocawear",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    5,
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Rock Revival",
+   "styles": [
+    "Denimwear"
+   ],
+   "sections": [
+    5,
+    7
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Russell Athletic",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    1,
+    3,
+    5,
+    6,
+    8,
+    10,
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Sean John",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    5
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Southpole",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    5,
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Starter",
+   "styles": [
+    "Sportswear & Activewear",
+    "Sports Fanwear & Official Merchandise"
+   ],
+   "sections": [
+    1,
+    3,
+    5,
+    6,
+    8,
+    10,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "The North Face",
+   "styles": [
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    1,
+    5,
+    6,
+    8,
+    10,
+    11,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Timberland",
+   "styles": [
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Tommy Bahama",
+   "styles": [
+    "Surf & Beachwear"
+   ],
+   "sections": [
+    4
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Tommy Hilfiger",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "True Religion",
+   "styles": [
+    "Denimwear"
+   ],
+   "sections": [
+    5,
+    7
+   ],
+   "kind": "brand",
+   "featured": true,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "U.S. Polo Assn.",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    1,
+    3,
+    5,
+    6,
+    8,
+    9,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Umbro",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    1,
+    3,
+    5,
+    6,
+    8,
+    10,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Unbranded",
+   "styles": [
+    "Y2K & Vintage"
+   ],
+   "sections": [
+    4,
+    8
+   ],
+   "kind": "stock-group",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Unbranded Colour-Block Styles",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    3
+   ],
+   "kind": "stock-group",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Unbranded Multicolour Styles",
+   "styles": [
+    "Classic & Preppy"
+   ],
+   "sections": [
+    3
+   ],
+   "kind": "stock-group",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Unbranded Vintage",
+   "styles": [
+    "Y2K & Vintage"
+   ],
+   "sections": [
+    15
+   ],
+   "kind": "stock-group",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Unbranded Y2K",
+   "styles": [
+    "Y2K & Vintage"
+   ],
+   "sections": [
+    3,
+    5,
+    9,
+    11,
+    12,
+    15
+   ],
+   "kind": "stock-group",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Under Armour",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    1,
+    5,
+    6,
+    8,
+    10,
+    12,
+    13
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Urban Outfitters",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Vans",
+   "styles": [
+    "Streetwear"
+   ],
+   "sections": [
+    1,
+    3,
+    5,
+    8,
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Vigoss",
+   "styles": [
+    "Denimwear"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Vintage Guess",
+   "styles": [
+    "Y2K & Vintage"
+   ],
+   "sections": [
+    15
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Volcom",
+   "styles": [
+    "Surf & Beachwear"
+   ],
+   "sections": [
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Von Dutch",
+   "styles": [
+    "Y2K & Vintage"
+   ],
+   "sections": [
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Vuori",
+   "styles": [
+    "Sportswear & Activewear"
+   ],
+   "sections": [
+    6,
+    8,
+    14
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Woolrich",
+   "styles": [
+    "Outdoor & Technical / Gorpcore"
+   ],
+   "sections": [
+    4,
+    9,
+    12
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  },
+  {
+   "name": "Wrangler",
+   "styles": [
+    "Denimwear",
+    "Workwear & Utility"
+   ],
+   "sections": [
+    4,
+    5,
+    6,
+    7
+   ],
+   "kind": "brand",
+   "featured": false,
+   "luxuryOnRequest": false
+  }
+ ],
+ "brandCollections": [
+  {
+   "brand": "The North Face",
+   "section": 13,
+   "name": "TNF Puffers — Premium / Iconic / Vintage Era",
+   "tier": "A. Premium / Iconic",
+   "description": "Nuptse / Baltoro / Himalayan / selected premium Summit Series. Recognisable model families, iconic silhouettes and selected premium technical down.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "Outdoor & technical resellers",
+    "Gorpcore resellers",
+    "Specialist TNF buyers"
+   ]
+  },
+  {
+   "brand": "The North Face",
+   "section": 13,
+   "name": "TNF Puffers — High-Value / High-Fill",
+   "tier": "B. High-Fill 700–900",
+   "description": "700 / 800 / 850 / 900 fill power — verified specifications. Positioned by model, construction and condition.",
+   "bestSuitedFor": [
+    "Outdoor & technical resellers",
+    "General branded resellers",
+    "Premium winterwear sellers"
+   ]
+  },
+  {
+   "brand": "The North Face",
+   "section": 13,
+   "name": "TNF Puffers — Core",
+   "tier": "C. Core 550–650",
+   "description": "550 / 600 / 650 fill power — verified specifications. Everyday TNF down with broad branded-resale appeal.",
+   "bestSuitedFor": [
+    "General branded resellers",
+    "Winterwear resellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "The North Face",
+   "section": 13,
+   "name": "TNF Puffers — Standard",
+   "tier": "D. Standard 500 / Synthetic",
+   "description": "500 fill power, standard down and synthetic-insulated (ThermoBall / Saikuru) styles.",
+   "bestSuitedFor": [
+    "General branded resellers",
+    "Budget resellers",
+    "Volume-focused sellers"
+   ]
+  },
+  {
+   "brand": "The North Face",
+   "section": 13,
+   "name": "TNF Premium Long Down / Technical Outerwear",
+   "tier": "E1. Premium Long",
+   "description": "Premium down parkas, technical insulated coats, higher-fill long puffers (McMurdo, Nuptse parka), expedition-inspired outerwear.",
+   "bestSuitedFor": [
+    "Outdoor & technical resellers",
+    "Women-focused resellers",
+    "Premium winterwear sellers"
+   ]
+  },
+  {
+   "brand": "The North Face",
+   "section": 13,
+   "name": "TNF Core / Standard Long Outerwear",
+   "tier": "E2. Core Long",
+   "description": "Standard long puffers, insulated parkas, mid-length and long winter coats.",
+   "bestSuitedFor": [
+    "General branded resellers",
+    "Women-focused resellers",
+    "Budget & volume winterwear sellers"
+   ]
+  },
+  {
+   "brand": "The North Face",
+   "section": 12,
+   "name": "TNF Premium Down Vests",
+   "tier": "F1. Premium Vests",
+   "description": "Recognisable premium models (1996 Retro Nuptse gilet), higher-fill down vests, selected vintage and technical variants.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "Outdoor & technical resellers",
+    "Premium branded resellers"
+   ]
+  },
+  {
+   "brand": "The North Face",
+   "section": 12,
+   "name": "TNF Core / Standard Puffer Vests",
+   "tier": "F2. Core Vests",
+   "description": "Everyday down and synthetic-insulated gilets with broad branded-resale appeal.",
+   "bestSuitedFor": [
+    "General branded resellers",
+    "Budget resellers",
+    "Transitional-season sellers"
+   ]
+  },
+  {
+   "brand": "The North Face",
+   "section": 11,
+   "name": "TNF Denali Fleece",
+   "tier": "Denali / Retro Denali",
+   "description": "Denali and Retro Denali colour-block fleece jackets and gilets with woven overlays.",
+   "bestSuitedFor": [
+    "Gorpcore resellers",
+    "Outdoor & technical resellers"
+   ]
+  },
+  {
+   "brand": "Lululemon",
+   "section": 14,
+   "name": "Lululemon Align",
+   "tier": "Align",
+   "description": "Yoga leggings, fitted shorts, tanks, bras and selected flared styles.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Women's athleisure sellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Lululemon",
+   "section": 14,
+   "name": "Lululemon Wunder Train / Wunder Under",
+   "tier": "Wunder Train / Wunder Under",
+   "description": "Leggings and fitted shorts, sorted by exact collection and fabric.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Women's athleisure sellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Lululemon",
+   "section": 14,
+   "name": "Lululemon Fast and Free",
+   "tier": "Fast and Free",
+   "description": "Running tights and running shorts.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Women's athleisure sellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Lululemon",
+   "section": 14,
+   "name": "Lululemon Define",
+   "tier": "Define",
+   "description": "Fitted full-zip jackets, cropped and hooded variants.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Women's athleisure sellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Lululemon",
+   "section": 14,
+   "name": "Lululemon Scuba",
+   "tier": "Scuba",
+   "description": "Full-zip and half-zip hoodies, funnel-neck sweatshirts, sweat bottoms.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Women's athleisure sellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Lululemon",
+   "section": 14,
+   "name": "Lululemon Swiftly Tech / Metal Vent Tech",
+   "tier": "Swiftly Tech / Metal Vent Tech",
+   "description": "Technical tanks, short-sleeve and long-sleeve tops.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Women's athleisure sellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Lululemon",
+   "section": 14,
+   "name": "Lululemon Energy / Flow Y / Free to Be / Like a Cloud",
+   "tier": "Energy / Flow Y / Free to Be / Like a Cloud",
+   "description": "Sports bras and longline variants.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Women's athleisure sellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Lululemon",
+   "section": 14,
+   "name": "Lululemon Hotty Hot / Speed Up / Pace Breaker",
+   "tier": "Hotty Hot / Speed Up / Pace Breaker",
+   "description": "Running and training shorts.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Women's athleisure sellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Lululemon",
+   "section": 14,
+   "name": "Lululemon Dance Studio / Groove / Softstreme",
+   "tier": "Dance Studio / Groove / Softstreme",
+   "description": "Studio pants, flared pants, relaxed bottoms and comfort layers.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Women's athleisure sellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Lululemon",
+   "section": 14,
+   "name": "Lululemon ABC / Commission",
+   "tier": "ABC / Commission",
+   "description": "Technical casual trousers, selected joggers and shorts.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Women's athleisure sellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Lululemon",
+   "section": 14,
+   "name": "Lululemon License to Train",
+   "tier": "License to Train",
+   "description": "Training tops, shorts and joggers.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Women's athleisure sellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Lululemon",
+   "section": 14,
+   "name": "Lululemon Steady State",
+   "tier": "Steady State",
+   "description": "Sweatshirts, hoodies and sweatpants.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Women's athleisure sellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Lululemon",
+   "section": 14,
+   "name": "Lululemon Archive / Older Designs",
+   "tier": "Archive / Older Designs",
+   "description": "Original-era flared yoga pants, distinctive waistbands, colour-block designs, older fitted jackets, discontinued styles.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Women's athleisure sellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Alo",
+   "section": 14,
+   "name": "Alo — Brand-Specific",
+   "tier": "Brand lot",
+   "description": "Studio separates, active layers and sweatwear.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Women's athleisure sellers"
+   ]
+  },
+  {
+   "brand": "Vuori",
+   "section": 14,
+   "name": "Vuori — Brand-Specific",
+   "tier": "Brand lot",
+   "description": "Performance, recovery and lifestyle garments.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Men's performance-casual sellers"
+   ]
+  },
+  {
+   "brand": "Gymshark",
+   "section": 14,
+   "name": "Gymshark — Brand-Specific",
+   "tier": "Brand lot",
+   "description": "Gym, seamless and training garments.",
+   "bestSuitedFor": [
+    "Activewear specialists",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Coach",
+   "section": 15,
+   "name": "Coach Vintage / Heritage Leather",
+   "tier": "A. Vintage Leather",
+   "description": "Original-era leather shoulder, flap, crossbody, satchel and bucket bags. Model references where identified: City Bag / Court Bag / Station Bag / Willis.",
+   "bestSuitedFor": [
+    "Coach specialists",
+    "Vintage leather sellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Coach",
+   "section": 15,
+   "name": "Coach Archive / Y2K Shoulder Bags",
+   "tier": "B. Archive / Y2K",
+   "description": "Compact shoulder bags, buckle-flap styles, slouchy hobos, East–West shapes. Soho / Ergo / Hamptons / Legacy. Original production and reissues identified separately.",
+   "bestSuitedFor": [
+    "Coach specialists",
+    "Y2K resellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Coach",
+   "section": 15,
+   "name": "Coach Signature Canvas / Jacquard",
+   "tier": "C. Signature",
+   "description": "Signature C-pattern bags, leather-trimmed fabric bags, monogram shoulder bags, crossbodies, satchels and totes.",
+   "bestSuitedFor": [
+    "Coach specialists",
+    "Contemporary branded resellers"
+   ]
+  },
+  {
+   "brand": "Coach",
+   "section": 15,
+   "name": "Coach Contemporary Named Collections",
+   "tier": "D. Contemporary",
+   "description": "Selected pre-owned Tabby / Swinger / Brooklyn and other identifiable collections.",
+   "bestSuitedFor": [
+    "Contemporary branded resellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Coach",
+   "section": 15,
+   "name": "Coach Everyday / Core",
+   "tier": "E. Everyday",
+   "description": "Practical leather and signature-fabric crossbodies, shoulder bags, satchels and totes; retail and outlet lines identified.",
+   "bestSuitedFor": [
+    "Contemporary branded resellers",
+    "Budget resellers"
+   ]
+  },
+  {
+   "brand": "George Gina & Lucy",
+   "section": 15,
+   "name": "GG&L Signature Multi-Pocket / Utility",
+   "tier": "A. Utility",
+   "description": "Nylon shoulder bags, cargo pockets, zip compartments, webbing straps, carabiner details.",
+   "bestSuitedFor": [
+    "Y2K resellers",
+    "Utility-fashion sellers",
+    "GG&L specialists",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "George Gina & Lucy",
+   "section": 15,
+   "name": "GG&L Compact / Everyday",
+   "tier": "B. Compact",
+   "description": "Small shoulder bags, crossbodies, compact utility bags.",
+   "bestSuitedFor": [
+    "Y2K resellers",
+    "Utility-fashion sellers",
+    "GG&L specialists",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "George Gina & Lucy",
+   "section": 15,
+   "name": "GG&L Large / Carryall",
+   "tier": "C. Carryall",
+   "description": "Oversized shoulder bags, shoppers, bowler bags, travel carryalls.",
+   "bestSuitedFor": [
+    "Y2K resellers",
+    "Utility-fashion sellers",
+    "GG&L specialists",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "George Gina & Lucy",
+   "section": 15,
+   "name": "GG&L Archive / Colour / Print",
+   "tier": "D. Archive",
+   "description": "Older production, distinctive colourways, metallics and prints. Mos Cowgirl / Paradise Angel / Double B.",
+   "bestSuitedFor": [
+    "Y2K resellers",
+    "Utility-fashion sellers",
+    "GG&L specialists",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Vintage Guess",
+   "section": 15,
+   "name": "Vintage Guess Compact Shoulder / Baguette",
+   "tier": "A. Baguette",
+   "description": "Short-strap shoulder bags, East–West shapes, compact flap bags. Original era only.",
+   "bestSuitedFor": [
+    "Vintage specialists",
+    "Y2K & McBling resellers",
+    "Fashion-led handbag sellers"
+   ]
+  },
+  {
+   "brand": "Vintage Guess",
+   "section": 15,
+   "name": "Vintage Guess Signature / Monogram",
+   "tier": "B. Monogram",
+   "description": "Original-era G-pattern, logo, jacquard and printed-fabric bags.",
+   "bestSuitedFor": [
+    "Vintage specialists",
+    "Y2K & McBling resellers",
+    "Fashion-led handbag sellers"
+   ]
+  },
+  {
+   "brand": "Vintage Guess",
+   "section": 15,
+   "name": "Vintage Guess Denim / Textile / Mixed-Material",
+   "tier": "C. Denim & Textile",
+   "description": "Denim bags, fabric-and-trim, patchwork and embroidered designs.",
+   "bestSuitedFor": [
+    "Vintage specialists",
+    "Y2K & McBling resellers",
+    "Fashion-led handbag sellers"
+   ]
+  },
+  {
+   "brand": "Vintage Guess",
+   "section": 15,
+   "name": "Vintage Guess McBling / Statement",
+   "tier": "D. McBling",
+   "description": "Buckles, studs, rhinestones, charms, metallic, patent-look and animal patterns.",
+   "bestSuitedFor": [
+    "Vintage specialists",
+    "Y2K & McBling resellers",
+    "Fashion-led handbag sellers"
+   ]
+  },
+  {
+   "brand": "Kathy Van Zeeland",
+   "section": 15,
+   "name": "Kathy Van Zeeland Signature Hardware / Charm",
+   "tier": "A. Hardware & Charms",
+   "description": "Crown and heart motifs, logo plaques, chunky hardware, charm clusters.",
+   "bestSuitedFor": [
+    "Y2K & McBling resellers",
+    "Boho-fashion sellers",
+    "Statement-bag specialists",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Kathy Van Zeeland",
+   "section": 15,
+   "name": "Kathy Van Zeeland Slouch / Hobo / Boho",
+   "tier": "B. Hobo & Boho",
+   "description": "Soft shoulder bags, gathered shapes, buckle, stud or fringe details.",
+   "bestSuitedFor": [
+    "Y2K & McBling resellers",
+    "Boho-fashion sellers",
+    "Statement-bag specialists",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Kathy Van Zeeland",
+   "section": 15,
+   "name": "Kathy Van Zeeland Metallic / Gloss / Embellished",
+   "tier": "C. Metallic",
+   "description": "Metallic and patent-look finishes, rhinestones, croc-embossed textures, animal patterns.",
+   "bestSuitedFor": [
+    "Y2K & McBling resellers",
+    "Boho-fashion sellers",
+    "Statement-bag specialists",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Kathy Van Zeeland",
+   "section": 15,
+   "name": "Kathy Van Zeeland Satchel / Tote / Everyday",
+   "tier": "D. Everyday",
+   "description": "Structured and semi-structured satchels, shoulder totes, roomy everyday bags.",
+   "bestSuitedFor": [
+    "Y2K & McBling resellers",
+    "Boho-fashion sellers",
+    "Statement-bag specialists",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Longchamp",
+   "section": 15,
+   "name": "Longchamp Le Pliage",
+   "tier": "Le Pliage",
+   "description": "Le Pliage foldaway totes, short- and long-handle shoulder totes; selected leather and crossbody styles.",
+   "bestSuitedFor": [
+    "Handbag specialists",
+    "Branded resale stores"
+   ]
+  },
+  {
+   "brand": "Marc Jacobs",
+   "section": 15,
+   "name": "Marc Jacobs The Tote Bag / Snapshot",
+   "tier": "Tote & Snapshot",
+   "description": "The Tote Bag, Snapshot, selected shoulder bags and older Marc by Marc Jacobs pieces.",
+   "bestSuitedFor": [
+    "Handbag specialists",
+    "Contemporary branded resellers"
+   ]
+  },
+  {
+   "brand": "Juicy Couture",
+   "section": 15,
+   "name": "Juicy Couture Original-Era Bags",
+   "tier": "Original era",
+   "description": "Original-era velour, terry, logo and crest bags; contemporary Y2K-style pieces listed separately.",
+   "bestSuitedFor": [
+    "Y2K & McBling resellers",
+    "Y2K boutiques"
+   ]
+  },
+  {
+   "brand": "Adidas",
+   "section": 10,
+   "name": "Adidas Firebird / SST / Beckenbauer",
+   "tier": "Iconic track tops",
+   "description": "Firebird, SST and Beckenbauer-style polyester tricot track jackets.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Adidas",
+   "section": 10,
+   "name": "Adidas Retro Multicolour Track Jackets",
+   "tier": "Retro",
+   "description": "Retro multicolour and lined retro track jackets.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "Vintage shops"
+   ]
+  },
+  {
+   "brand": "Adidas",
+   "section": 1,
+   "name": "Adidas Football & Basketball Jerseys",
+   "tier": "Jerseys",
+   "description": "Retro and official football-club / national-team jerseys, vintage basketball jerseys.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "Sports fanwear sellers"
+   ]
+  },
+  {
+   "brand": "Adidas",
+   "section": 6,
+   "name": "Adidas Firebird / SST / Adibreak / Tiro Track Pants",
+   "tier": "Track pants",
+   "description": "Firebird, SST, Adibreak and Tiro track and training pants; winterised and fleece variants.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Nike",
+   "section": 8,
+   "name": "Nike Tech Fleece / Club Fleece",
+   "tier": "Fleece",
+   "description": "Tech Fleece hoodies and full-zips; Club Fleece small and big-logo hoodies and joggers.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Nike",
+   "section": 12,
+   "name": "Nike Windrunner",
+   "tier": "Windrunner",
+   "description": "Lightweight Windrunner and windbreaker jackets.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "General branded resellers"
+   ]
+  },
+  {
+   "brand": "Nike",
+   "section": 1,
+   "name": "Nike Football & Basketball Jerseys",
+   "tier": "Jerseys",
+   "description": "Official club / national-team, retro Total 90-style and basketball jerseys.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "Sports fanwear sellers"
+   ]
+  },
+  {
+   "brand": "Carhartt",
+   "section": 12,
+   "name": "Carhartt Detroit / Active / Chore Jackets",
+   "tier": "Iconic work jackets",
+   "description": "Detroit, Active hooded and Chore / Michigan duck canvas jackets.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "Workwear resellers",
+    "Vintage shops"
+   ]
+  },
+  {
+   "brand": "Carhartt",
+   "section": 6,
+   "name": "Carhartt Double-Knee / Carpenter Pants",
+   "tier": "Work pants",
+   "description": "Double-knee, single-knee, carpenter and loose WIP work pants in duck canvas.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "Workwear resellers"
+   ]
+  },
+  {
+   "brand": "Dickies",
+   "section": 6,
+   "name": "Dickies 874 / Double-Knee Work Pants",
+   "tier": "874 & double-knee",
+   "description": "Original 874, double-knee, skate and carpenter work pants.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "Workwear resellers"
+   ]
+  },
+  {
+   "brand": "Dickies",
+   "section": 12,
+   "name": "Dickies Eisenhower Jackets",
+   "tier": "Eisenhower",
+   "description": "Eisenhower and lined Eisenhower work jackets.",
+   "bestSuitedFor": [
+    "Workwear resellers",
+    "Vintage shops"
+   ]
+  },
+  {
+   "brand": "Columbia",
+   "section": 12,
+   "name": "Columbia Bugaboo / Whirlibird 3-in-1",
+   "tier": "3-in-1",
+   "description": "Bugaboo and Whirlibird Interchange jackets with removable liners.",
+   "bestSuitedFor": [
+    "Outdoor & technical resellers",
+    "Gorpcore resellers"
+   ]
+  },
+  {
+   "brand": "Columbia",
+   "section": 11,
+   "name": "Columbia Steens Mountain / Vintage Fleece",
+   "tier": "Fleece",
+   "description": "Steens Mountain and vintage colour-block fleece jackets.",
+   "bestSuitedFor": [
+    "Gorpcore resellers",
+    "Vintage shops"
+   ]
+  },
+  {
+   "brand": "Columbia",
+   "section": 12,
+   "name": "Columbia Vintage Ski / Technical Shells",
+   "tier": "Vintage ski",
+   "description": "Vintage colour-block ski and technical shell jackets.",
+   "bestSuitedFor": [
+    "Gorpcore resellers",
+    "Vintage shops"
+   ]
+  },
+  {
+   "brand": "Patagonia",
+   "section": 11,
+   "name": "Patagonia Retro-X / Retro Pile / Synchilla",
+   "tier": "Heritage fleece",
+   "description": "Classic Retro-X, Retro Pile, Synchilla pullovers and Snap-T.",
+   "bestSuitedFor": [
+    "Gorpcore resellers",
+    "Outdoor & technical resellers"
+   ]
+  },
+  {
+   "brand": "Patagonia",
+   "section": 11,
+   "name": "Patagonia Better Sweater / R1",
+   "tier": "Everyday & technical fleece",
+   "description": "Better Sweater full-zip / quarter-zip and R1 technical fleece.",
+   "bestSuitedFor": [
+    "Outdoor & technical resellers",
+    "General branded resellers"
+   ]
+  },
+  {
+   "brand": "Patagonia",
+   "section": 13,
+   "name": "Patagonia Down Sweater / Nano Puff",
+   "tier": "Insulated",
+   "description": "Down Sweater and Nano Puff jackets and vests.",
+   "bestSuitedFor": [
+    "Outdoor & technical resellers",
+    "Premium winterwear sellers"
+   ]
+  },
+  {
+   "brand": "Levi's",
+   "section": 7,
+   "name": "Levi's 501 / 505 Straight",
+   "tier": "501 / 505",
+   "description": "501 Original, heavyweight dark-wash 501 and 505 regular straight jeans.",
+   "bestSuitedFor": [
+    "Vintage shops",
+    "Online & live sellers"
+   ]
+  },
+  {
+   "brand": "Levi's",
+   "section": 7,
+   "name": "Levi's 550 / 560 / 569 Relaxed & Baggy",
+   "tier": "Relaxed & baggy",
+   "description": "550, 560, 569 and 559 relaxed or baggy jeans.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "Y2K boutiques"
+   ]
+  },
+  {
+   "brand": "Levi's",
+   "section": 7,
+   "name": "Levi's Women's Ribcage / 725 / Wedgie",
+   "tier": "Women's",
+   "description": "Ribcage, Wedgie, 501 and 725 / 726 bootcut or flare women's jeans.",
+   "bestSuitedFor": [
+    "Women-focused resellers",
+    "Y2K boutiques"
+   ]
+  },
+  {
+   "brand": "True Religion",
+   "section": 7,
+   "name": "True Religion Big T / Super T",
+   "tier": "Big T / Super T",
+   "description": "Ricky, Joey, Becca, Billy, Geno and Rocco jeans with Big T / Super T stitching and horseshoe pockets.",
+   "bestSuitedFor": [
+    "Y2K boutiques",
+    "Streetwear resellers"
+   ]
+  },
+  {
+   "brand": "Rock Revival",
+   "section": 7,
+   "name": "Rock Revival Embellished Denim",
+   "tier": "Statement",
+   "description": "Fleur-de-lis, embroidered and rhinestone flap-pocket jeans, jorts and jackets.",
+   "bestSuitedFor": [
+    "Y2K boutiques",
+    "Y2K & McBling resellers"
+   ]
+  },
+  {
+   "brand": "Miss Me",
+   "section": 7,
+   "name": "Miss Me Embellished Denim",
+   "tier": "Statement",
+   "description": "Rhinestone, embroidered and flap-pocket bootcut, flare, straight and skinny jeans.",
+   "bestSuitedFor": [
+    "Y2K boutiques",
+    "Women-focused resellers"
+   ]
+  },
+  {
+   "brand": "Ralph Lauren",
+   "section": 2,
+   "name": "Ralph Lauren Big Pony / Statement Polos",
+   "tier": "Big Pony",
+   "description": "Big Pony, maximalist Big Pony and Country / Crest statement piqué polos.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "Vintage shops"
+   ]
+  },
+  {
+   "brand": "Ralph Lauren",
+   "section": 9,
+   "name": "Ralph Lauren Polo Bear / Flag Knits",
+   "tier": "Statement knits",
+   "description": "Polo Bear, Flag and Crest statement knitwear.",
+   "bestSuitedFor": [
+    "Vintage shops",
+    "Premium branded resellers"
+   ]
+  },
+  {
+   "brand": "Ralph Lauren",
+   "section": 12,
+   "name": "Ralph Lauren Polo Sport / Archive Jackets",
+   "tier": "Archive",
+   "description": "Polo Sport, Country Flag, Sailing and Racing archive jackets.",
+   "bestSuitedFor": [
+    "Vintage shops",
+    "Streetwear resellers"
+   ]
+  },
+  {
+   "brand": "Tommy Hilfiger",
+   "section": 12,
+   "name": "Tommy Hilfiger Archive / Flag Jackets",
+   "tier": "Archive",
+   "description": "Sailing, Flag, Spellout and colour-block archive jackets.",
+   "bestSuitedFor": [
+    "Vintage shops",
+    "Y2K boutiques"
+   ]
+  },
+  {
+   "brand": "Lacoste",
+   "section": 2,
+   "name": "Lacoste Large Crocodile / Statement",
+   "tier": "Statement",
+   "description": "Large crocodile statement polos, tees and Lacoste Sport sweatshirts.",
+   "bestSuitedFor": [
+    "Streetwear resellers",
+    "Vintage shops"
+   ]
+  }
+ ]
 }

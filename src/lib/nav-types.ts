@@ -15,4 +15,6 @@ export type SiteNav = {
   trade: NavLink[]
   announcement: { text: string; href?: string } | null
   contact: { email?: string | null; phone?: string | null; whatsapp?: string | null }
+  business: { name: string; tagline: string; slogan: string; locations: string[] }
+  requireLoginForPrices: boolean
 }

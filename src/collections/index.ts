@@ -3,6 +3,7 @@ import { Brands } from './Brands'
 import { BuyerTypes } from './BuyerTypes'
 import { Customers } from './Customers'
 import { Descriptors } from './Descriptors'
+import { Enquiries } from './Enquiries'
 import { FashionCategories } from './FashionCategories'
 import { Lots } from './Lots'
 import { Media } from './Media'
@@ -24,6 +25,7 @@ export const collections = [
   Descriptors,
   BuyerTypes,
   Quotes,
+  Enquiries,
   Customers,
   PriceLists,
   Pages,

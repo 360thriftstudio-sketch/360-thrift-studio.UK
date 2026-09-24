@@ -2,7 +2,7 @@
   "name": "360-thrift-studio",
   "version": "0.1.0",
   "private": true,
-  "description": "360 Thrift Studio UK — B2B wholesale catalogue with a Request for Quote basket",
+  "description": "360 Thrift Studio UK \u2014 B2B wholesale catalogue with a Request for Quote basket",
   "type": "module",
   "scripts": {
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
@@ -17,7 +17,10 @@
     "test": "pnpm run test:unit",
     "test:unit": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "migrate": "cross-env NODE_OPTIONS=--no-deprecation payload migrate",
+    "migrate:create": "cross-env NODE_OPTIONS=--no-deprecation payload migrate:create",
+    "seed:demo": "cross-env NODE_OPTIONS=--no-deprecation tsx seed/seed.ts --demo"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.90.2",

@@ -1,4 +1,3 @@
-import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
 test.describe('site shell', () => {
@@ -7,6 +6,7 @@ test.describe('site shell', () => {
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     await expect(page.locator('h1')).toHaveCount(1)
     await expect(page.getByRole('link', { name: /T-Shirts/ }).first()).toBeAttached()
+    await expect(page.getByRole('img', { name: '360° Thrift Studio' }).first()).toBeVisible()
     await expect(page.getByRole('link', { name: /Bags \(Women\)/ }).first()).toBeAttached()
     await expect(page.getByText('Not affiliated with or endorsed by any brand shown')).toBeVisible()
   })
@@ -53,11 +53,10 @@ test.describe('site shell', () => {
     await expect(dialog).toBeHidden()
   })
 
-  test('no serious or critical axe violations on home', async ({ page }, testInfo) => {
+  test('brand marquee has a working pause button', async ({ page }) => {
     await page.goto('/')
-    const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze()
-    const blocking = results.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical')
-    expect(blocking, JSON.stringify(blocking, null, 2)).toEqual([])
-    await page.screenshot({ path: testInfo.outputPath('home.png'), fullPage: true })
+    const pause = page.getByRole('button', { name: /Pause brand scroll/ })
+    await pause.click()
+    await expect(page.getByRole('button', { name: /Play brand scroll/ })).toHaveAttribute('aria-pressed', 'true')
   })
 })

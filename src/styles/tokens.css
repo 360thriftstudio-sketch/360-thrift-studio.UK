@@ -4,24 +4,37 @@
  * token NAMES are fixed. Tailwind reads these via @theme in globals.css.
  */
 :root {
-  /* colour — placeholder palette: warehouse neutral + one accent */
-  --color-bg: #fafaf7;
+  /* colour — 360 Thrift Studio brand board */
+  --brand-yellow: #ffd400; /* Thrift Yellow — energy, good finds */
+  --brand-blue: #0066ff; /* Studio Blue — trust, style, community */
+  --brand-green: #22b14c; /* Cycle Green — sustainability, second life */
+  --brand-black: #000000; /* Bold Black — strength, streetwear */
+  --brand-cream: #fffdf5; /* Clean Cream — balance, space */
+
+  /* semantic (contrast-checked: blue passes AA with white and on cream;
+     yellow and green are fills behind BLACK text only) */
+  --color-bg: var(--brand-cream);
   --color-surface: #ffffff;
-  --color-ink: #141414;
-  --color-ink-muted: #5c5c5c;
-  --color-line: #e4e2dc;
-  --color-accent: #1f6f4a; /* CTA, links */
+  --color-ink: #0a0a0a;
+  --color-ink-muted: #4a4a45;
+  --color-line: #e7e2d2;
+  --color-accent: var(--brand-blue); /* CTA, links */
   --color-accent-ink: #ffffff;
-  --color-badge-new: #1f4fb8;
-  --color-badge-low: #b35c00;
+  --color-highlight: var(--brand-yellow); /* marker highlight, black text */
+  --color-highlight-ink: #0a0a0a;
+  --color-eco: var(--brand-green); /* sustainability fills, black text */
+  --color-eco-ink: #0a0a0a;
+  --color-badge-new: var(--brand-blue);
+  --color-badge-low: var(--brand-yellow);
   --color-badge-sold: #6b6b6b;
-  --color-success: #1f7a3a;
-  --color-error: #b3261e;
-  --color-focus: #2563eb;
+  --color-success: #13803a;
+  --color-error: #c4221a;
+  --color-focus: var(--brand-blue);
 
   /* type */
-  --font-display: var(--font-archivo, 'Archivo'), system-ui, sans-serif; /* condensed, bold */
-  --font-body: var(--font-inter, 'Inter'), system-ui, sans-serif;
+  --font-display: var(--font-anton, 'Anton'), 'Arial Narrow', sans-serif; /* condensed tagline style */
+  --font-marker: var(--font-marker-hand, 'Permanent Marker'), 'Comic Sans MS', cursive; /* graffiti accents only */
+  --font-body: var(--font-montserrat, 'Montserrat'), system-ui, sans-serif; /* supporting (clean) */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;

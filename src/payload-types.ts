@@ -77,6 +77,7 @@ export interface Config {
     descriptors: Descriptor;
     'buyer-types': BuyerType;
     quotes: Quote;
+    enquiries: Enquiry;
     customers: Customer;
     'price-lists': PriceList;
     pages: Page;
@@ -99,6 +100,7 @@ export interface Config {
     descriptors: DescriptorsSelect<false> | DescriptorsSelect<true>;
     'buyer-types': BuyerTypesSelect<false> | BuyerTypesSelect<true>;
     quotes: QuotesSelect<false> | QuotesSelect<true>;
+    enquiries: EnquiriesSelect<false> | EnquiriesSelect<true>;
     customers: CustomersSelect<false> | CustomersSelect<true>;
     'price-lists': PriceListsSelect<false> | PriceListsSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
@@ -347,6 +349,20 @@ export interface Section {
       }[]
     | null;
   /**
+   * Brands stocked in this section, grouped by fashion category.
+   */
+  brandSets?:
+    | {
+        fashionCategory: number | FashionCategory;
+        /**
+         * Heading as written in the catalogue.
+         */
+        label?: string | null;
+        brands?: (number | Brand)[] | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
    * Expandable text at the bottom of the listing.
    */
   seoContent?: {
@@ -364,36 +380,6 @@ export interface Section {
     };
     [k: string]: unknown;
   } | null;
-  seo?: {
-    title?: string | null;
-    description?: string | null;
-    ogImage?: (number | null) | Media;
-  };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "subcategories".
- */
-export interface Subcategory {
-  id: number;
-  name: string;
-  /**
-   * Unique within its section, e.g. /shop/jackets/windbreakers.
-   */
-  slug: string;
-  section: number | Section;
-  /**
-   * Group key from the section (A, B, C…).
-   */
-  group?: string | null;
-  intro?: string | null;
-  image?: (number | null) | Media;
-  /**
-   * Lower numbers show first.
-   */
-  order?: number | null;
   seo?: {
     title?: string | null;
     description?: string | null;
@@ -438,6 +424,8 @@ export interface Brand {
    * Used in the URL. Leave blank to generate from the name.
    */
   slug: string;
+  kind: 'brand' | 'stock-group' | 'licence';
+  sections?: (number | Section)[] | null;
   /**
    * Short, neutral description. No brand marketing copy.
    */
@@ -474,6 +462,36 @@ export interface Brand {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "subcategories".
+ */
+export interface Subcategory {
+  id: number;
+  name: string;
+  /**
+   * Unique within its section, e.g. /shop/jackets/windbreakers.
+   */
+  slug: string;
+  section: number | Section;
+  /**
+   * Group key from the section (A, B, C…).
+   */
+  group?: string | null;
+  intro?: string | null;
+  image?: (number | null) | Media;
+  /**
+   * Lower numbers show first.
+   */
+  order?: number | null;
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+    ogImage?: (number | null) | Media;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "brand-collections".
  */
 export interface BrandCollection {
@@ -490,6 +508,7 @@ export interface BrandCollection {
    */
   tier?: string | null;
   description?: string | null;
+  bestSuitedFor?: (number | BuyerType)[] | null;
   image?: (number | null) | Media;
   /**
    * Lower numbers show first.
@@ -500,6 +519,20 @@ export interface BrandCollection {
     description?: string | null;
     ogImage?: (number | null) | Media;
   };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "buyer-types".
+ */
+export interface BuyerType {
+  id: number;
+  name: string;
+  /**
+   * Used in the URL. Leave blank to generate from the name.
+   */
+  slug: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -523,20 +556,6 @@ export interface Descriptor {
    * Only show this facet on these sections. Leave empty for all.
    */
   sections?: (number | Section)[] | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "buyer-types".
- */
-export interface BuyerType {
-  id: number;
-  name: string;
-  /**
-   * Used in the URL. Leave blank to generate from the name.
-   */
-  slug: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -680,6 +699,36 @@ export interface PriceList {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "enquiries".
+ */
+export interface Enquiry {
+  id: number;
+  type: 'trade-account' | 'luxury' | 'contact' | 'newsletter' | 'warehouse-visit';
+  status?: ('new' | 'in-progress' | 'done') | null;
+  email: string;
+  name?: string | null;
+  company?: string | null;
+  phone?: string | null;
+  country?: string | null;
+  message?: string | null;
+  /**
+   * Extra form answers.
+   */
+  fields?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  customer?: (number | null) | Customer;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages".
  */
 export interface Page {
@@ -689,7 +738,21 @@ export interface Page {
    * Used in the URL. Leave blank to generate from the title.
    */
   slug: string;
+  group: 'info' | 'legal';
   intro?: string | null;
+  sections?:
+    | {
+        heading?: string | null;
+        /**
+         * Blank line = new paragraph. Lines starting "- " become a list.
+         */
+        body?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Optional rich text after the sections.
+   */
   content?: {
     root: {
       type: string;
@@ -817,6 +880,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'quotes';
         value: number | Quote;
+      } | null)
+    | ({
+        relationTo: 'enquiries';
+        value: number | Enquiry;
       } | null)
     | ({
         relationTo: 'customers';
@@ -982,6 +1049,14 @@ export interface SectionsSelect<T extends boolean = true> {
         label?: T;
         id?: T;
       };
+  brandSets?:
+    | T
+    | {
+        fashionCategory?: T;
+        label?: T;
+        brands?: T;
+        id?: T;
+      };
   seoContent?: T;
   seo?:
     | T
@@ -1022,6 +1097,8 @@ export interface SubcategoriesSelect<T extends boolean = true> {
 export interface BrandsSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
+  kind?: T;
+  sections?: T;
   description?: T;
   disclaimer?: T;
   fashionCategories?: T;
@@ -1051,6 +1128,7 @@ export interface BrandCollectionsSelect<T extends boolean = true> {
   section?: T;
   tier?: T;
   description?: T;
+  bestSuitedFor?: T;
   image?: T;
   order?: T;
   seo?:
@@ -1150,6 +1228,24 @@ export interface QuotesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "enquiries_select".
+ */
+export interface EnquiriesSelect<T extends boolean = true> {
+  type?: T;
+  status?: T;
+  email?: T;
+  name?: T;
+  company?: T;
+  phone?: T;
+  country?: T;
+  message?: T;
+  fields?: T;
+  customer?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "customers_select".
  */
 export interface CustomersSelect<T extends boolean = true> {
@@ -1226,7 +1322,15 @@ export interface PriceListsSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  group?: T;
   intro?: T;
+  sections?:
+    | T
+    | {
+        heading?: T;
+        body?: T;
+        id?: T;
+      };
   content?: T;
   seo?:
     | T
@@ -1378,6 +1482,21 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Setting {
   id: number;
+  business?: {
+    name?: string | null;
+    tagline?: string | null;
+    slogan?: string | null;
+    /**
+     * Offices & warehouses.
+     */
+    locations?:
+      | {
+          country: string;
+          detail?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
   /**
    * Keep OFF until you have written permission or UK IP-solicitor sign-off. When off, every brand shows as a text wordmark. Each brand also needs "Logo approved".
    */
@@ -1418,6 +1537,20 @@ export interface Setting {
  * via the `definition` "settings_select".
  */
 export interface SettingsSelect<T extends boolean = true> {
+  business?:
+    | T
+    | {
+        name?: T;
+        tagline?: T;
+        slogan?: T;
+        locations?:
+          | T
+          | {
+              country?: T;
+              detail?: T;
+              id?: T;
+            };
+      };
   showBrandLogos?: T;
   requireLoginForPrices?: T;
   announcement?:

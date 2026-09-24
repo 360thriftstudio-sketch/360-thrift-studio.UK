@@ -17,6 +17,19 @@ export const Brands: CollectionConfig = {
     { name: 'name', type: 'text', required: true },
     slugField('name'),
     {
+      name: 'kind',
+      type: 'select',
+      required: true,
+      defaultValue: 'brand',
+      options: [
+        { label: 'Brand', value: 'brand' },
+        { label: 'Stock group (e.g. Unbranded Y2K)', value: 'stock-group' },
+        { label: 'League / licence (verified official only)', value: 'licence' },
+      ],
+      admin: { position: 'sidebar' },
+    },
+    { name: 'sections', type: 'relationship', relationTo: 'sections', hasMany: true },
+    {
       name: 'description',
       type: 'textarea',
       admin: { description: 'Short, neutral description. No brand marketing copy.' },

@@ -84,5 +84,12 @@ export const getSiteNav = cache(async (): Promise<SiteNav> => {
       phone: settings.contact?.phone,
       whatsapp: settings.contact?.whatsapp,
     },
+    business: {
+      name: settings.business?.name || '360° Thrift Studio',
+      tagline: settings.business?.tagline || 'Vintage · Premium · Wholesale',
+      slogan: settings.business?.slogan || 'Good clothes. Bigger stories.',
+      locations: (settings.business?.locations ?? []).map((l) => l.country),
+    },
+    requireLoginForPrices: Boolean(settings.requireLoginForPrices),
   }
 })

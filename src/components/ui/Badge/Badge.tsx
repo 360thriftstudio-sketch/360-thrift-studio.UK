@@ -7,7 +7,7 @@ export type BadgeTone = 'new' | 'low' | 'sold' | 'success' | 'bestseller' | 'arr
 
 const tones: Record<BadgeTone, { className: string; icon?: ReactNode }> = {
   new: { className: 'bg-badge-new text-accent-ink', icon: <Sparkles aria-hidden className="size-3.5" /> },
-  low: { className: 'bg-badge-low text-accent-ink', icon: <AlertTriangle aria-hidden className="size-3.5" /> },
+  low: { className: 'bg-badge-low text-ink', icon: <AlertTriangle aria-hidden className="size-3.5" /> },
   sold: { className: 'bg-badge-sold text-accent-ink', icon: <XCircle aria-hidden className="size-3.5" /> },
   success: { className: 'bg-success text-accent-ink', icon: <CheckCircle2 aria-hidden className="size-3.5" /> },
   bestseller: { className: 'bg-ink text-bg', icon: <Star aria-hidden className="size-3.5" /> },

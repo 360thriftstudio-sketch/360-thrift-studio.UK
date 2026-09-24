@@ -26,7 +26,7 @@ export const Quotes: CollectionConfig = {
   defaultSort: '-createdAt',
   access: {
     read: ownCustomerOrStaff('customer'),
-    create: ({ req }) => Boolean(req.user),
+    create: isStaff, // buyers submit through /api/rfq, which re-prices every line
     update: isStaff,
     delete: isStaff,
   },
@@ -48,13 +48,13 @@ export const Quotes: CollectionConfig = {
           data.ref = nextQuoteRef(latest.docs[0]?.ref, year)
           data.status = 'submitted'
           data.reservedUntil = reservationExpiry(now).toISOString()
-          if (req.user?.collection === 'customers') data.customer = req.user.id
+          if (!data.customer && req.user?.collection === 'customers') data.customer = req.user.id
           return data
         }
 
         const from = originalDoc?.status as QuoteStatus | undefined
         const to = data.status as QuoteStatus | undefined
-        if (from && to && !canTransition(from, to)) {
+        if (from && to && !canTransition(from, to) && !req.context?.skipTransitionCheck) {
           throw new APIError(
             `A quote can't move from ${QUOTE_STATUS_LABELS[from]} to ${QUOTE_STATUS_LABELS[to]}.`,
             400,
