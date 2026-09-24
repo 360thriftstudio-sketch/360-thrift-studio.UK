@@ -4,6 +4,7 @@
  *
  *   pnpm seed          taxonomy + info pages + settings
  *   pnpm seed --demo   also publishes DEMO- lots so listings have content (dev only)
+ *   --if-empty         skip entirely when the database already has sections
  */
 import 'dotenv/config'
 
@@ -42,6 +43,15 @@ async function seed() {
   const demo = process.argv.includes('--demo')
   const payload = await getPayload({ config })
   const log = (msg: string) => payload.logger.info(`[seed] ${msg}`)
+
+  // `--if-empty`: used on deploy start so restarts don't re-seed an existing database.
+  if (process.argv.includes('--if-empty')) {
+    const { totalDocs } = await payload.count({ collection: 'sections', overrideAccess: true })
+    if (totalDocs > 0) {
+      log('database already seeded — skipping')
+      process.exit(0)
+    }
+  }
 
   // Staff admin (first run only)
   const { totalDocs: staff } = await payload.count({ collection: 'users', overrideAccess: true })
