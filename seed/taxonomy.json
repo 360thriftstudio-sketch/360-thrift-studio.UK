@@ -1,0 +1,128 @@
+{
+  "_readme": "Seed taxonomy. Section names, order and the 10 fashion categories come from the catalogue. Subcategory groups, brand lists, collections and descriptors marked draft:true are STARTING POINTS — replace them with the exact lists from your catalogue PDF, then run `pnpm seed` again (it upserts by slug).",
+  "sections": [
+    { "number": 1, "name": "T-Shirts", "menuColumn": "1", "draft": true, "groups": [
+      { "key": "A", "label": "Graphic & print", "subcategories": ["Graphic tees", "Band & tour tees", "Spellout tees", "Single stitch tees"] },
+      { "key": "B", "label": "Plain & logo", "subcategories": ["Small logo tees", "Plain tees", "Long sleeve tees"] }
+    ]},
+    { "number": 2, "name": "Three Button Polos", "menuColumn": "1", "draft": true, "groups": [
+      { "key": "A", "label": "Short sleeve", "subcategories": ["Plain polos", "Striped polos", "Small logo polos"] },
+      { "key": "B", "label": "Long sleeve", "subcategories": ["Long sleeve polos"] }
+    ]},
+    { "number": 3, "name": "Rugby Polos", "menuColumn": "1", "draft": true, "groups": [
+      { "key": "A", "label": "Rugby shirts", "subcategories": ["Striped rugby shirts", "Colour-block rugby shirts", "Plain rugby shirts"] }
+    ]},
+    { "number": 4, "name": "Shirts", "menuColumn": "1", "draft": true, "groups": [
+      { "key": "A", "label": "Casual", "subcategories": ["Flannel shirts", "Oxford shirts", "Hawaiian shirts", "Denim shirts"] },
+      { "key": "B", "label": "Work & utility", "subcategories": ["Work shirts", "Overshirts"] }
+    ]},
+    { "number": 5, "name": "Shorts", "menuColumn": "1", "draft": true, "groups": [
+      { "key": "A", "label": "Casual", "subcategories": ["Cargo shorts", "Chino shorts", "Denim shorts"] },
+      { "key": "B", "label": "Sport", "subcategories": ["Sports shorts", "Swim shorts"] }
+    ]},
+    { "number": 6, "name": "Pants & Trousers", "menuColumn": "1", "draft": true, "groups": [
+      { "key": "A", "label": "Casual", "subcategories": ["Cargo pants", "Chinos", "Corduroy trousers"] },
+      { "key": "B", "label": "Work & sport", "subcategories": ["Carpenter pants", "Track pants", "Joggers"] }
+    ]},
+    { "number": 7, "name": "Jeans & Denim Wear", "menuColumn": "1", "draft": true, "groups": [
+      { "key": "A", "label": "Jeans", "subcategories": ["Straight jeans", "Baggy jeans", "Bootcut & flare jeans", "Skinny jeans"] },
+      { "key": "B", "label": "Denim wear", "subcategories": ["Denim jackets", "Denim skirts", "Dungarees"] }
+    ]},
+    { "number": 8, "name": "Sweatshirts & Hoodies", "menuColumn": "1", "draft": true, "groups": [
+      { "key": "A", "label": "Sweatshirts", "subcategories": ["Crewneck sweatshirts", "Quarter-zip sweatshirts"] },
+      { "key": "B", "label": "Hoodies", "subcategories": ["Pullover hoodies", "Zip hoodies"] }
+    ]},
+    { "number": 9, "name": "Knitwear", "menuColumn": "2", "draft": true, "groups": [
+      { "key": "A", "label": "Jumpers", "subcategories": ["Crewneck jumpers", "V-neck jumpers", "Quarter-zip jumpers"] },
+      { "key": "B", "label": "Cardigans & vests", "subcategories": ["Cardigans", "Knitted vests"] }
+    ]},
+    { "number": 10, "name": "Track Jackets", "menuColumn": "2", "draft": true, "groups": [
+      { "key": "A", "label": "Track tops", "subcategories": ["Zip track jackets", "Shell tracksuits", "Full tracksuits"] }
+    ]},
+    { "number": 11, "name": "Fleece Jackets", "menuColumn": "2", "draft": true, "groups": [
+      { "key": "A", "label": "Fleece", "subcategories": ["Full-zip fleece", "Half-zip fleece", "Sherpa & pile fleece"] }
+    ]},
+    { "number": 12, "name": "Jackets", "menuColumn": "2", "draft": true, "groups": [
+      { "key": "A", "label": "Lightweight / Technical / Shell", "subcategories": ["Windbreakers", "Rain jackets", "Shell jackets"] },
+      { "key": "B", "label": "Work & heritage", "subcategories": ["Work jackets", "Harrington jackets", "Waxed jackets", "Bomber jackets"] },
+      { "key": "C", "label": "Leather & suede", "subcategories": ["Leather jackets", "Suede jackets"] }
+    ]},
+    { "number": 13, "name": "Puffer Jackets", "menuColumn": "2", "draft": true, "groups": [
+      { "key": "A", "label": "Puffers", "subcategories": ["Short puffers", "Long puffers", "Gilets"] }
+    ]},
+    { "number": 14, "name": "Activewear & Athleisure", "menuColumn": "2", "draft": true, "groups": [
+      { "key": "A", "label": "Activewear", "subcategories": ["Leggings", "Sports bras", "Training tops", "Running jackets"] }
+    ]},
+    { "number": 15, "name": "Bags (Women)", "menuColumn": "2", "draft": true, "groups": [
+      { "key": "A", "label": "Bags", "subcategories": ["Shoulder bags", "Crossbody bags", "Tote bags", "Clutches"] }
+    ]}
+  ],
+  "fashionCategories": [
+    "Classic & Preppy",
+    "Sportswear",
+    "Outdoor & Technical / Gorpcore",
+    "Workwear",
+    "Streetwear",
+    "Denimwear",
+    "Surf",
+    "Fanwear",
+    "Y2K & Vintage",
+    "Luxury"
+  ],
+  "buyerTypes": [
+    "Streetwear resellers",
+    "Y2K boutiques",
+    "Vintage shops",
+    "Online resellers (Depop, Vinted, eBay)",
+    "Live sellers",
+    "Market traders",
+    "International importers"
+  ],
+  "brands": [
+    { "name": "The North Face", "styles": ["Outdoor & Technical / Gorpcore"], "featured": true },
+    { "name": "Patagonia", "styles": ["Outdoor & Technical / Gorpcore"], "featured": true },
+    { "name": "Columbia", "styles": ["Outdoor & Technical / Gorpcore"], "featured": true },
+    { "name": "Arc'teryx", "styles": ["Outdoor & Technical / Gorpcore"], "featured": false },
+    { "name": "Carhartt", "styles": ["Workwear"], "featured": true },
+    { "name": "Dickies", "styles": ["Workwear"], "featured": true },
+    { "name": "Nike", "styles": ["Sportswear", "Streetwear"], "featured": true },
+    { "name": "Adidas", "styles": ["Sportswear", "Streetwear"], "featured": true },
+    { "name": "Champion", "styles": ["Sportswear"], "featured": true },
+    { "name": "Fila", "styles": ["Sportswear"], "featured": false },
+    { "name": "Ralph Lauren", "styles": ["Classic & Preppy"], "featured": true },
+    { "name": "Tommy Hilfiger", "styles": ["Classic & Preppy"], "featured": true },
+    { "name": "Lacoste", "styles": ["Classic & Preppy"], "featured": true },
+    { "name": "Levi's", "styles": ["Denimwear"], "featured": true },
+    { "name": "Wrangler", "styles": ["Denimwear"], "featured": false },
+    { "name": "Quiksilver", "styles": ["Surf"], "featured": false },
+    { "name": "Billabong", "styles": ["Surf"], "featured": false },
+    { "name": "Stüssy", "styles": ["Streetwear"], "featured": true },
+    { "name": "Lululemon", "styles": ["Sportswear"], "featured": true },
+    { "name": "Coach", "styles": ["Luxury", "Y2K & Vintage"], "featured": true },
+    { "name": "Burberry", "styles": ["Luxury", "Classic & Preppy"], "featured": true },
+    { "name": "Dior", "styles": ["Luxury"], "luxuryOnRequest": true },
+    { "name": "Gucci", "styles": ["Luxury"], "luxuryOnRequest": true },
+    { "name": "Louis Vuitton", "styles": ["Luxury"], "luxuryOnRequest": true }
+  ],
+  "brandCollections": [
+    { "brand": "The North Face", "section": 13, "name": "TNF Puffers — Premium / Iconic", "tier": "A. Premium / Iconic" },
+    { "brand": "The North Face", "section": 13, "name": "TNF Puffers — High-fill", "tier": "B. High-fill" },
+    { "brand": "The North Face", "section": 13, "name": "TNF Puffers — Core", "tier": "C. Core 550–650 fill" },
+    { "brand": "The North Face", "section": 13, "name": "TNF Puffers — Standard", "tier": "D. Standard" },
+    { "brand": "The North Face", "section": 13, "name": "TNF Long puffers", "tier": "Long puffers" },
+    { "brand": "The North Face", "section": 13, "name": "TNF Gilets", "tier": "Gilets" },
+    { "brand": "The North Face", "section": 13, "name": "TNF Nuptse", "tier": "Nuptse" },
+    { "brand": "Lululemon", "section": 14, "name": "Lululemon Align", "tier": "Align" },
+    { "brand": "Coach", "section": 15, "name": "Coach Archive", "tier": "Archive" }
+  ],
+  "descriptors": [
+    { "group": "Fill power", "kind": "descriptor", "sections": [13], "terms": ["550 fill", "600 fill", "650 fill", "700 fill", "800 fill"] },
+    { "group": "Insulation", "kind": "descriptor", "sections": [13], "terms": ["Down", "Synthetic"] },
+    { "group": "Length", "kind": "descriptor", "sections": [13], "terms": ["Cropped", "Hip length", "Long"] },
+    { "group": "Hood", "kind": "descriptor", "sections": [12, 13, 8], "terms": ["Hooded", "No hood"] },
+    { "group": "Knit", "kind": "descriptor", "sections": [9], "terms": ["Cable-knit", "Fair Isle", "Ribbed", "Chunky knit"] },
+    { "group": "Fibre", "kind": "descriptor", "sections": [9], "terms": ["Wool", "Cotton", "Cashmere blend", "Acrylic"] },
+    { "group": "Fit", "kind": "descriptor", "sections": [7, 6], "terms": ["Straight", "Relaxed", "Baggy", "Slim"] },
+    { "group": "Design group", "kind": "design-group", "sections": [], "terms": ["Plain", "Small logo", "Spellout", "Graphic", "Colour-block", "Stripe-detail"] }
+  ]
+}

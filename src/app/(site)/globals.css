@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+@import '../../styles/tokens.css';
+
+/*
+ * Expose the design tokens to Tailwind. `inline` keeps utilities pointing at
+ * the CSS variables, so changing tokens.css re-themes everything.
+ * Tailwind's default palette/spacing are reset so only tokens can be used.
+ */
+@theme inline {
+  --color-*: initial;
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-line: var(--color-line);
+  --color-accent: var(--color-accent);
+  --color-accent-ink: var(--color-accent-ink);
+  --color-badge-new: var(--color-badge-new);
+  --color-badge-low: var(--color-badge-low);
+  --color-badge-sold: var(--color-badge-sold);
+  --color-success: var(--color-success);
+  --color-error: var(--color-error);
+  --color-focus: var(--color-focus);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+
+  --text-xs: var(--text-xs);
+  --text-sm: var(--text-sm);
+  --text-base: var(--text-base);
+  --text-lg: var(--text-lg);
+  --text-xl: var(--text-xl);
+  --text-2xl: var(--text-2xl);
+  --text-3xl: var(--text-3xl);
+  --text-hero: var(--text-hero);
+  --leading-tight: var(--leading-tight);
+  --leading-body: var(--leading-body);
+
+  --spacing: 4px;
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-pill: var(--radius-pill);
+
+  --shadow-card: var(--shadow-card);
+  --shadow-pop: var(--shadow-pop);
+
+  --ease-out: var(--ease-out);
+  --ease-in-out: var(--ease-in-out);
+  --ease-brand: var(--ease-brand);
+
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  --container-site: var(--container);
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    line-height: var(--leading-body);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    line-height: var(--leading-tight);
+    font-weight: 800;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility container-site {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Drawer / dialog motion (Radix data-state). Reduced motion → fade only. */
+@keyframes fade-in { from { opacity: 0 } }
+@keyframes fade-out { to { opacity: 0 } }
+@keyframes slide-in-right { from { transform: translateX(100%) } }
+@keyframes slide-out-right { to { transform: translateX(100%) } }
+@keyframes slide-in-left { from { transform: translateX(-100%) } }
+@keyframes slide-out-left { to { transform: translateX(-100%) } }
+@keyframes drop-in { from { opacity: 0; transform: translateY(-4px) } }
+
+.drawer-overlay[data-state='open'] { animation: fade-in var(--dur-base) var(--ease-out); }
+.drawer-overlay[data-state='closed'] { animation: fade-out var(--dur-base) var(--ease-out); }
+.drawer-content[data-side='right'][data-state='open'] { animation: slide-in-right 280ms var(--ease-brand); }
+.drawer-content[data-side='right'][data-state='closed'] { animation: slide-out-right 200ms var(--ease-out); }
+.drawer-content[data-side='left'][data-state='open'] { animation: slide-in-left 280ms var(--ease-brand); }
+.drawer-content[data-side='left'][data-state='closed'] { animation: slide-out-left 200ms var(--ease-out); }
+.mega-panel[data-state='open'] { animation: drop-in var(--dur-base) var(--ease-out); }
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer-content[data-state='open'],
+  .mega-panel[data-state='open'] { animation: fade-in 150ms linear; }
+  .drawer-content[data-state='closed'] { animation: fade-out 150ms linear; }
+}

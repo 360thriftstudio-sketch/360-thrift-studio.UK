@@ -1,0 +1,5 @@
+export { Hero } from './Hero/Hero'
+export { HowItWorks } from './HowItWorks/HowItWorks'
+export { SectionTiles, type SectionTile } from './SectionTiles/SectionTiles'
+export { StyleTiles } from './StyleTiles/StyleTiles'
+export { TrustStrip, type TrustItem } from './TrustStrip/TrustStrip'
