@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Sources &amp; Methodology</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main id="main" class="stack narrow">
+      <p><a href="/#/home">← Back to Seller Studio</a></p>
+      <h1>Sources &amp; methodology</h1>
+
+      <section class="card stack">
+        <h2>Data sources</h2>
+        <dl class="kv">
+          <dt>Etsy Open API v3</dt>
+          <dd>Your shop, listings, images, receipts and transactions, reviews, shipping/processing/return profiles and the seller taxonomy. Read with <code>listings_r shops_r transactions_r</code>; <code>listings_w</code> only when the draft lister is switched on.</dd>
+          <dt>Marketplace Insights</dt>
+          <dd>Official Etsy search and listing counts from Shop Manager → Stats. Not in the public API, so it is only ever imported by you (CSV or typed). Shown as “Official Etsy Marketplace Insights” with its capture date.</dd>
+          <dt>Krafie</dt>
+          <dd>Third-party estimates of keyword opportunity, demand, trend and competition, plus sample listings. Directional only — never shown as official Etsy search volume or sales.</dd>
+          <dt>App-calculated</dt>
+          <dd>SEO components, priority and opportunity scores below. All are recommendations, not predictions.</dd>
+        </dl>
+      </section>
+
+      <section class="card stack">
+        <h2>Shop metrics</h2>
+        <p><strong>Revenue</strong> is the receipt subtotal: item prices after discounts, excluding shipping and tax. <strong>Paid orders</strong> are receipts Etsy marks paid that are not cancelled or fully refunded; partial refunds stay at their gross value.</p>
+        <p>Every total covers only the synchronised window (default 24 months), shown on the Performance page. Nothing is labelled “lifetime”.</p>
+        <p><strong>Conversion rate</strong> needs visits, which Etsy’s Open API does not provide, so it is shown as unavailable.</p>
+      </section>
+
+      <section class="card stack">
+        <h2>SEO audit</h2>
+        <p>The SEO score is the average of three components, each 0–100 and each shown with its source:</p>
+        <ul>
+          <li><strong>Etsy visibility requirements</strong> — a category is set (and is the most specific one), all 13 tags are used, there is at least one photo, and physical items have shipping.</li>
+          <li><strong>Keyword coverage</strong> — how many words from the title’s lead phrase also appear in tags, and how many related research phrases the listing already covers.</li>
+          <li><strong>Listing clarity</strong> — the title is under 15 words with no word repeated three times or more, the description opens by saying what the item is, and photos have alt text.</li>
+        </ul>
+        <p>The 15-word title, 5-photo, 2000px and 160-character description thresholds are <em>studio heuristics</em> for buyer readability, not Etsy ranking rules. Change them in <code>src/lib/seo.js</code>.</p>
+        <p>Sales evidence (units, revenue, favourites) is shown next to the score, but it is not part of it.</p>
+        <h3>Priority</h3>
+        <p><code>priority = severity × sales potential × confidence × freshness</code>. Sales potential is <code>0.35 + 0.65 × √(listing revenue ÷ best listing revenue)</code> over 12 months, so a proven listing with a fixable visibility issue ranks above an unproven listing with a cosmetic one. Freshness drops as the last Etsy sync ages.</p>
+        <p>Listings in the top 10% of revenue are marked <strong>proven</strong>. Title and description changes on them need an extra confirmation.</p>
+      </section>
+
+      <section class="card stack">
+        <h2>Opportunity score</h2>
+        <p>For each keyword:</p>
+        <ul>
+          <li><strong>Internal demand</strong> = 50 × √(units ÷ max units) + 50 × √(revenue ÷ max revenue), using 12 months of your paid order lines from listings that match the keyword.</li>
+          <li><strong>Catalogue scarcity</strong> = 100 − 20 × matching active listings (minimum 0).</li>
+          <li><strong>Krafie signal</strong> = Krafie’s opportunity score, or the average of demand, trend and (100 − competition) when no opportunity score is returned.</li>
+          <li><strong>Official signal</strong> = searches ÷ listings from Marketplace Insights, normalised to the best keyword = 100.</li>
+        </ul>
+        <p>Weights are 55 / 25 / 20 (internal / scarcity / Krafie) without Insights, and 40 / 20 / 15 / 25 with Insights. If a component is missing, its weight is shared among the others rather than counted as zero.</p>
+        <p><strong>Matching</strong> is by whole words: a listing matches when every content word of the keyword (stop words removed, simple plurals folded) appears in its title or tags. “art” does not match “party”. Each keyword’s drawer lists the exact listings and order lines it matched.</p>
+        <p><strong>Confidence</strong>: high when official Insights and your own sales agree; medium when your sales and a Krafie signal of 50+ agree; exploratory otherwise.</p>
+      </section>
+
+      <section class="card stack">
+        <h2>Writes to Etsy</h2>
+        <ul>
+          <li>New products become private Etsy drafts first. Publishing needs you to type <code>PUBLISH</code> and acknowledge the listing fee. Scheduled jobs cannot publish or edit listings.</li>
+          <li>Changes to existing listings save a backup, check the field still holds the value the suggestion was based on, patch only the fields you approved, then read the listing back.</li>
+          <li>Each change records a performance baseline. The Performance page compares same-length windows before and after. That is correlation, not proof the change caused the result.</li>
+        </ul>
+      </section>
+
+      <section class="card stack">
+        <h2>Privacy</h2>
+        <p>Receipts are reduced to an allow-list before they are saved: no buyer names, emails, ids, addresses, messages, gift notes or personalisation text are kept. OAuth tokens live in your operating system’s secure store (DPAPI, Keychain or libsecret), never in files, the database or this page.</p>
+      </section>
+
+      <p class="foot-note">The term ‘Etsy’ is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy, Inc.</p>
+    </main>
+  </body>
+</html>

@@ -3,6 +3,10 @@
 B2B wholesale catalogue with a **Request for Quote** basket instead of a checkout.
 Next.js (App Router) + Payload CMS 3 + Postgres + Tailwind v4, in one app.
 
+## Etsy Seller Studio
+
+`etsy-studio/` is a separate, self-contained local app (Node 22, no dependencies) for Etsy shop analytics, SEO, research and a draft-first lister. See [`etsy-studio/README.md`](etsy-studio/README.md). It is not part of the Next.js build.
+
 ## Getting started
 
 ```bash

@@ -1,0 +1,22 @@
+# Secrets and credentials — never commit these
+.env
+.env.*
+!.env.example
+certs/
+*.pem
+*.key
+*.crt
+
+# Local data: snapshots, research, imports, assets, database, vault
+data/raw/*
+data/research/*
+data/imports/marketplace-insights/*
+data/assets/*
+data/app/*
+!data/**/.gitkeep
+output/*
+!output/.gitkeep
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
