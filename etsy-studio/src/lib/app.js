@@ -31,7 +31,7 @@ const STATIC = {
 
 const err = (status, message) => Object.assign(new Error(message), { status })
 
-export function createApp(db, { port = getConfig().dashboard.port } = {}) {
+export function createApp(db, { port = getConfig().dashboard.port, publicDemo = getConfig().publicDemo } = {}) {
   const csrf = crypto.randomBytes(24).toString('base64url')
   const allowedHosts = new Set([`127.0.0.1:${port}`, `localhost:${port}`])
   const routes = []
@@ -55,6 +55,7 @@ export function createApp(db, { port = getConfig().dashboard.port } = {}) {
       limits: ETSY_LIMITS,
       enums: { who_made: WHO_MADE, when_made: WHEN_MADE },
       publish_phrase: PUBLISH_PHRASE,
+      public_demo: publicDemo,
       sources: shop ? sourceStatus(db, shop) : null,
       seo_audit: getSetting(db, 'seo_audit'),
     }
@@ -175,7 +176,8 @@ export function createApp(db, { port = getConfig().dashboard.port } = {}) {
   on('GET', '/api/assets', () => db.prepare('SELECT id, kind, mime, size, filename, width, height, source, created_at FROM assets WHERE shop_id=? ORDER BY created_at DESC LIMIT 200').all(shopOr404().shop_id))
   on('POST', '/api/assets', async ({ req }) => {
     const shop = shopOr404()
-    const buf = await readBody(req, ETSY_LIMITS.videoMaxBytes + 1024)
+    // The public demo accepts small files only; everything is wiped when the demo restarts.
+    const buf = await readBody(req, publicDemo ? 3 * 1024 * 1024 : ETSY_LIMITS.videoMaxBytes + 1024)
     const name = decodeURIComponent(String(req.headers['x-filename'] ?? 'upload'))
     const a = saveAsset(db, shop, buf, { filename: name, source: 'upload' })
     return { id: a.id, kind: a.kind, mime: a.mime, size: a.size, filename: a.filename, width: a.width, height: a.height }
@@ -243,8 +245,12 @@ export function createApp(db, { port = getConfig().dashboard.port } = {}) {
   return async function handle(req, res) {
     securityHeaders(res)
     try {
-      // DNS-rebinding guard: only our own loopback host names.
-      if (!allowedHosts.has(String(req.headers.host ?? ''))) throw err(421, 'Unexpected Host header')
+      // DNS-rebinding guard: only our own loopback host names. A public demo answers on its own domain.
+      if (publicDemo) {
+        allowedHosts.add(String(req.headers.host ?? ''))
+        res.setHeader('X-Robots-Tag', 'noindex, nofollow')
+        res.setHeader('Strict-Transport-Security', 'max-age=31536000')
+      } else if (!allowedHosts.has(String(req.headers.host ?? ''))) throw err(421, 'Unexpected Host header')
       const url = new URL(req.url, `http://${req.headers.host}`)
 
       if (req.method === 'GET' && STATIC[url.pathname]) {
@@ -270,7 +276,8 @@ export function createApp(db, { port = getConfig().dashboard.port } = {}) {
       if (!url.pathname.startsWith('/api/')) throw err(404, 'Not found')
       if (req.method !== 'GET') {
         const origin = req.headers.origin
-        if (origin && !allowedHosts.has(origin.replace(/^http:\/\//, ''))) throw err(403, 'Cross-origin request refused')
+        if (origin && origin.replace(/^https?:\/\//, '') !== String(req.headers.host ?? '')) throw err(403, 'Cross-origin request refused')
+        if (publicDemo && currentShop(db) && !currentShop(db).is_demo) throw err(403, 'Public demo serves the demo shop only.')
         const token = String(req.headers['x-studio-token'] ?? '')
         if (token.length !== csrf.length || !crypto.timingSafeEqual(Buffer.from(token), Buffer.from(csrf))) throw err(403, 'Missing or invalid session token — reload the page.')
       }

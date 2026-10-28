@@ -229,7 +229,8 @@ async function loadSession() {
   S.session = await api('GET', '/api/session')
   $('#disclosure').textContent = S.session.disclosure
   const b = clear($('#banner'))
-  if (S.session.shop?.is_demo) b.append(el('div', { class: 'banner', text: 'Demo shop with fictional data. Etsy writes go to an offline stand-in; nothing reaches Etsy.' }))
+  if (S.session.public_demo) b.append(el('div', { class: 'banner', text: 'Public demo · fictional shop · nothing connects to Etsy or Krafie. Anyone with the link sees the same demo, and it resets when the server restarts. Don’t upload anything private.' }))
+  else if (S.session.shop?.is_demo) b.append(el('div', { class: 'banner', text: 'Demo shop with fictional data. Etsy writes go to an offline stand-in; nothing reaches Etsy.' }))
   else if (!S.session.shop) b.append(el('div', { class: 'banner', text: 'No shop yet. Run `npm run demo:seed` to explore, or `npm run auth` then `npm run sync` to connect your Etsy shop.' }))
   const f = clear($('#side-foot'))
   if (S.session.shop) {

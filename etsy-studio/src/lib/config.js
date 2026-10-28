@@ -41,7 +41,11 @@ export function getConfig({ reload = false } = {}) {
       receiptMonths: int('SYNC_RECEIPT_MONTHS', 24),
       apiBase: env.ETSY_API_BASE || 'https://api.etsy.com/v3',
     },
-    dashboard: { host: '127.0.0.1', port: int('DASHBOARD_PORT', 3000) },
+    // STUDIO_PUBLIC_DEMO=1: a hosted, demo-only copy (fictional shop, no Etsy/Krafie connections).
+    publicDemo: env.STUDIO_PUBLIC_DEMO === '1',
+    dashboard: env.STUDIO_PUBLIC_DEMO === '1'
+      ? { host: '0.0.0.0', port: int('PORT', 10000) }
+      : { host: '127.0.0.1', port: int('DASHBOARD_PORT', 3000) },
     krafie: {
       command: env.KRAFIE_MCP_COMMAND || 'krafie-mcp',
       args: (env.KRAFIE_MCP_ARGS || '').split(' ').filter(Boolean),
