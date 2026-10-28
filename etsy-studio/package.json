@@ -17,6 +17,7 @@
     "demo": "node scripts/demo-seed.js && node src/dashboard-server.js",
     "demo:seed": "node scripts/demo-seed.js",
     "demo:public": "node scripts/public-demo.js",
+    "demo:static": "node scripts/build-static-demo.js",
     "check": "node scripts/check.js",
     "test": "node --test --test-reporter=spec tests/*.test.js"
   }

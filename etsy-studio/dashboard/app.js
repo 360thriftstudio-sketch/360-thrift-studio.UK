@@ -1,5 +1,15 @@
 // Seller Studio front end. No framework; every value is set with textContent (never innerHTML).
 const S = { session: null, cache: {} }
+// Static online demo: a saved snapshot of the API stands in for the server, and routing stays in memory.
+const STATIC = window.__STATIC_DEMO__ ?? null
+let staticHash = '#/home'
+const currentHash = () => (STATIC ? staticHash : location.hash)
+function go(hash) {
+  if (!STATIC) return void (location.hash = hash)
+  staticHash = hash
+  route()
+}
+const assetUrl = (id) => (STATIC ? STATIC.assets[id] ?? '' : `/api/assets/${id}/file`)
 
 // ---------- dom helpers ----------
 function el(tag, attrs = {}, ...kids) {
@@ -53,7 +63,36 @@ const STATUS_LABEL = { local_draft: 'Local draft', assets_incomplete: 'Assets in
 const statusChip = (s) => chip(STATUS_LABEL[s] ?? label(s), STATUS_CLASS[s] ?? '')
 
 // ---------- api ----------
+function staticApi(method, path) {
+  if (method !== 'GET') return Promise.reject(new Error('This online demo is read-only. Run Seller Studio on your computer to make changes.'))
+  const [p, q] = path.split('?')
+  const qs = new URLSearchParams(q ?? '')
+  if (p === '/api/research') return Promise.resolve(filterResearch(structuredClone(STATIC.data[p]), qs))
+  if (p === '/api/taxonomy') {
+    const t = (qs.get('q') ?? '').toLowerCase()
+    return Promise.resolve(STATIC.data[p].filter((x) => x.path.toLowerCase().includes(t)))
+  }
+  if (!(p in STATIC.data)) return Promise.reject(new Error('That view isn’t included in the online demo.'))
+  return Promise.resolve(structuredClone(STATIC.data[p]))
+}
+// Mirrors the server's research filters (src/lib/views.js) for the static demo.
+function filterResearch(r, qs) {
+  const rank = { exploratory: 0, medium: 1, high: 2 }
+  const t = (qs.get('q') ?? '').toLowerCase().trim()
+  let rows = r.rows
+  if (t) rows = rows.filter((x) => x.keyword.includes(t) || (x.theme ?? '').toLowerCase().includes(t))
+  if (qs.get('theme')) rows = rows.filter((x) => x.theme === qs.get('theme'))
+  if (qs.get('min_score')) rows = rows.filter((x) => x.score >= Number(qs.get('min_score')))
+  if (qs.get('min_confidence')) rows = rows.filter((x) => rank[x.confidence] >= rank[qs.get('min_confidence')])
+  if (qs.get('mode') === 'new') rows = rows.filter((x) => x.mode !== 'optimize')
+  if (qs.get('mode') === 'optimize') rows = rows.filter((x) => x.catalog_matches > 0)
+  if (qs.get('source') === 'insights') rows = rows.filter((x) => x.official)
+  if (qs.get('source') === 'krafie') rows = rows.filter((x) => x.krafie)
+  return { ...r, rows, top: rows.filter((x) => x.mode !== 'optimize').slice(0, 3) }
+}
+
 async function api(method, path, body, { raw } = {}) {
+  if (STATIC) return staticApi(method, path)
   const headers = {}
   if (method !== 'GET') headers['x-studio-token'] = S.session?.csrf ?? ''
   let payload
@@ -229,18 +268,19 @@ async function loadSession() {
   S.session = await api('GET', '/api/session')
   $('#disclosure').textContent = S.session.disclosure
   const b = clear($('#banner'))
-  if (S.session.public_demo) b.append(el('div', { class: 'banner', text: 'Public demo · fictional shop · nothing connects to Etsy or Krafie. Anyone with the link sees the same demo, and it resets when the server restarts. Don’t upload anything private.' }))
+  if (STATIC) b.append(el('div', { class: 'banner', text: 'Online demo · fictional shop · read-only. Browse every screen; to create drafts or connect your own Etsy shop, run Seller Studio on your computer.' }))
+  else if (S.session.public_demo) b.append(el('div', { class: 'banner', text: 'Public demo · fictional shop · nothing connects to Etsy or Krafie. Anyone with the link sees the same demo, and it resets when the server restarts. Don’t upload anything private.' }))
   else if (S.session.shop?.is_demo) b.append(el('div', { class: 'banner', text: 'Demo shop with fictional data. Etsy writes go to an offline stand-in; nothing reaches Etsy.' }))
   else if (!S.session.shop) b.append(el('div', { class: 'banner', text: 'No shop yet. Run `npm run demo:seed` to explore, or `npm run auth` then `npm run sync` to connect your Etsy shop.' }))
   const f = clear($('#side-foot'))
   if (S.session.shop) {
-    f.append(
+    put(f, 
       el('div', { class: 'trunc', text: S.session.shop.name }),
       el('div', {}, 'Etsy ', el('span', { text: ago(S.session.sources?.etsy?.last_success) })),
       el('div', {}, 'Research ', el('span', { text: ago(S.session.sources?.research?.last_success) })),
       el('div', { text: S.session.shop.is_demo ? 'Writes: demo only' : S.session.etsy.writes.ok ? 'Writes: enabled (draft-first)' : 'Writes: read-only' }),
       el('div', { text: '🔒 Local · buyer details removed' }),
-      el('a', { href: '/methodology.html', text: 'Sources & methodology' }),
+      STATIC ? null : el('a', { href: '/methodology.html', text: 'Sources & methodology' }),
     )
   }
 }
@@ -248,7 +288,7 @@ async function loadSession() {
 const ROUTES = { home: viewHome, optimize: viewOptimize, research: viewResearch, create: viewCreate, drafts: viewDrafts, performance: viewPerformance }
 async function route() {
   closeDrawer()
-  const [path, qs] = location.hash.replace(/^#\/?/, '').split('?')
+  const [path, qs] = currentHash().replace(/^#\/?/, '').split('?')
   const name = ROUTES[path] ? path : 'home'
   document.querySelectorAll('#nav a').forEach((a) => a.setAttribute('aria-current', a.dataset.route === name ? 'page' : 'false'))
   const view = clear($('#view'))
@@ -307,7 +347,7 @@ async function viewHome() {
       el('section', { class: 'card' }, el('h2', { text: 'Fix next' }),
         h.fix_next.length ? el('ul', { class: 'list' }, h.fix_next.map((f) => el('li', {}, chip(f.impact, f.impact), el('div', { class: 'grow' }, el('div', { class: 'trunc', text: f.title }), el('div', { class: 'small muted', text: f.reason })), el('button', { type: 'button', class: 'link', text: 'Review', onclick: () => openListing(f.listing_id) })))) : el('p', { class: 'muted', text: 'No open issues.' })),
       el('section', { class: 'card' }, el('h2', { text: 'Make next' }),
-        h.make_next.length ? el('ul', { class: 'list' }, h.make_next.map((k) => el('li', {}, scoreChip(k.score), el('div', { class: 'grow' }, el('div', { class: 'trunc', text: k.keyword }), el('div', { class: 'small muted', text: k.angle })), el('button', { type: 'button', class: 'link', text: 'Brief', onclick: () => (location.hash = `#/create?keyword=${encodeURIComponent(k.keyword)}`) })))) : el('p', { class: 'muted', text: 'Refresh research to find opportunities.' })),
+        h.make_next.length ? el('ul', { class: 'list' }, h.make_next.map((k) => el('li', {}, scoreChip(k.score), el('div', { class: 'grow' }, el('div', { class: 'trunc', text: k.keyword }), el('div', { class: 'small muted', text: k.angle })), el('button', { type: 'button', class: 'link', text: 'Brief', onclick: () => (go(`#/create?keyword=${encodeURIComponent(k.keyword)}`)) })))) : el('p', { class: 'muted', text: 'Refresh research to find opportunities.' })),
       el('section', { class: 'card' }, el('h2', { text: 'Drafts to review' }),
         h.drafts.review.length ? el('ul', { class: 'list' }, h.drafts.review.map((d) => el('li', {}, el('div', { class: 'grow trunc', text: d.title }), statusChip(d.status), el('button', { type: 'button', class: 'link', text: 'Open', onclick: () => openDraft(d.id) })))) : el('p', { class: 'muted', text: h.drafts.in_progress ? `${h.drafts.in_progress} draft(s) in progress.` : 'No drafts waiting.' }),
         h.drafts.stale ? el('p', { class: 'small', text: `${h.drafts.stale} draft(s) untouched for 14+ days.` }) : null,
@@ -461,7 +501,7 @@ async function viewResearch(qs) {
     clear(top).append(...(r.top.length ? r.top : []).map((k) => el('div', { class: 'card' },
       el('div', { class: 'row' }, scoreChip(k.score), el('strong', { class: 'trunc', text: k.keyword }), el('span', { class: 'spacer' }), chip(k.confidence, k.confidence === 'high' ? 'good' : k.confidence === 'medium' ? 'info' : '')),
       el('p', { class: 'small muted', text: k.angle }),
-      el('div', { class: 'row' }, el('button', { type: 'button', class: 'primary', text: 'Create product brief', onclick: () => (location.hash = `#/create?keyword=${encodeURIComponent(k.keyword)}`) }), el('button', { type: 'button', text: 'Evidence', onclick: () => openKeyword(k.keyword) })))))
+      el('div', { class: 'row' }, el('button', { type: 'button', class: 'primary', text: 'Create product brief', onclick: () => (go(`#/create?keyword=${encodeURIComponent(k.keyword)}`)) }), el('button', { type: 'button', text: 'Evidence', onclick: () => openKeyword(k.keyword) })))))
     const hasOfficial = r.rows.some((x) => x.official)
     clear(holder).append(sortableTable([
       { key: 'keyword', label: 'Keyword', render: (k) => el('div', {}, el('div', { class: 'title trunc', text: k.keyword }), k.theme ? el('div', { class: 'small muted', text: label(k.theme) }) : null) },
@@ -511,7 +551,7 @@ async function openKeyword(kw) {
     )
     const foot = el('footer', {},
       el('button', { type: 'button', text: 'Find listing to optimize', disabled: !k.evidence.listings.length, onclick: () => (k.evidence.listings[0] ? openListing(k.evidence.listings[0].listing_id) : null) }),
-      el('button', { type: 'button', class: 'primary', autofocus: true, text: 'Create product brief', onclick: () => { closeDrawer(); location.hash = `#/create?keyword=${encodeURIComponent(k.keyword)}` } }))
+      el('button', { type: 'button', class: 'primary', autofocus: true, text: 'Create product brief', onclick: () => { closeDrawer(); go(`#/create?keyword=${encodeURIComponent(k.keyword)}`) } }))
     d.body.after(foot)
   })
 }
@@ -536,7 +576,7 @@ async function viewCreate(qs) {
   const step = Math.max(0, STEPS.indexOf(qs.get('step') ?? '') )
   if (!draftId) return createBrief(qs.get('keyword') ?? '')
   const d = await api('GET', `/api/drafts/${draftId}`)
-  const go = (i) => (location.hash = `#/create?draft=${draftId}&step=${STEPS[i]}`)
+  const go = (i) => (go(`#/create?draft=${draftId}&step=${STEPS[i]}`))
   const stepper = el('ol', { class: 'stepper', 'aria-label': 'Steps' }, STEPS.map((s, i) => el('li', { class: i < step ? 'done' : '' }, el('button', { type: 'button', 'aria-current': i === step ? 'step' : null, onclick: () => go(i) }, el('span', { class: 'n', text: i + 1 }), s))))
   const body = await [stepBrief, stepDesign, stepMockups, stepListing, stepFiles, stepReview][step](d, go)
   const title = d.fields.title || d.brief?.keyword || 'New product'
@@ -569,7 +609,7 @@ function createBrief(keyword) {
     e.preventDefault()
     const body = Object.fromEntries(Object.entries(f).map(([k, n]) => [k, n.value]))
     const r = await run(submit, () => api('POST', '/api/briefs', { ...body, product_kind: kind }), 'Brief saved')
-    location.hash = `#/create?draft=${r.draft.id}&step=Design`
+    go(`#/create?draft=${r.draft.id}&step=Design`)
   })
   return el('div', {}, head('Create', 'Brief → design → mockups → listing → files → review.'), el('ol', { class: 'stepper' }, STEPS.map((s, i) => el('li', {}, el('button', { type: 'button', 'aria-current': i === 0 ? 'step' : null, disabled: i > 0 }, el('span', { class: 'n', text: i + 1 }), s)))), form)
 }
@@ -584,7 +624,7 @@ async function assetLibrary({ filter, selected = new Set(), onPick, pickLabel = 
   const items = list.filter((a) => !filter || filter(a))
   if (!items.length) return el('p', { class: 'muted', text: 'No media yet.' })
   return el('div', { class: 'assets' }, items.map((a) => el('div', { class: `asset ${selected.has(a.id) ? 'selected' : ''}` },
-    a.kind === 'image' ? el('img', { src: `/api/assets/${a.id}/file`, alt: a.filename, loading: 'lazy' }) : el('div', { class: 'file', text: a.mime.split('/')[1].toUpperCase() }),
+    a.kind === 'image' ? el('img', { src: assetUrl(a.id), alt: a.filename, loading: 'lazy' }) : el('div', { class: 'file', text: a.mime.split('/')[1].toUpperCase() }),
     el('div', { class: 'meta' }, el('span', { class: 'trunc', text: a.filename }), el('span', { class: 'muted', text: `${a.width ? `${a.width}×${a.height} · ` : ''}${Math.round(a.size / 1024)} KB · ${a.source}` }),
       onPick ? el('button', { type: 'button', text: selected.has(a.id) ? 'Added' : pickLabel, disabled: selected.has(a.id), onclick: () => onPick(a) }) : null))))
 }
@@ -796,14 +836,16 @@ function draftSummary(d) {
       el('dt', { text: 'Quantity' }), el('dd', { text: f.quantity }),
       d.etsy_listing_id ? [el('dt', { text: 'Etsy listing' }), el('dd', { text: `#${d.etsy_listing_id} ${d.status === 'published' ? '(live)' : '(private draft)'}` })] : null),
     el('h3', { text: `Images · ${imgs.length}` }),
-    imgs.length ? el('div', { class: 'thumbs' }, imgs.map((a, i) => el('img', { src: `/api/assets/${a.asset_id}/file`, alt: a.alt_text || `Image ${i + 1}`, title: `${i + 1}. ${a.alt_text ?? ''}` }))) : el('p', { class: 'muted', text: 'No images.' }),
+    imgs.length ? el('div', { class: 'thumbs' }, imgs.map((a, i) => el('img', { src: assetUrl(a.asset_id), alt: a.alt_text || `Image ${i + 1}`, title: `${i + 1}. ${a.alt_text ?? ''}` }))) : el('p', { class: 'muted', text: 'No images.' }),
     f.type === 'download' ? [el('h3', { text: 'Files' }), files.length ? el('ul', { class: 'list small' }, files.map((a) => el('li', {}, el('span', { class: 'grow', text: a.filename }), el('span', { class: 'muted', text: `${Math.round(a.size / 1024)} KB` }), a.upload_error ? el('span', { class: 'err', text: a.upload_error }) : null))) : el('p', { class: 'muted', text: 'No files.' })] : null,
     el('h3', { text: 'Description' }), el('div', { class: 'pre', text: f.description || '—' }))
 }
 
+const FIELD_LABEL = { taxonomy_id: 'Category', shipping_profile_id: 'Shipping profile', readiness_state_id: 'Processing profile', who_made: 'Who made it', when_made: 'When made', ip_reviewed: 'Rights check', personalization_instructions: 'Personalisation', personalization_char_count_max: 'Personalisation limit', images: 'Images', files: 'Files', video: 'Video' }
+const fieldLabel = (f) => FIELD_LABEL[f] ?? label(f)
 function validationView(v) {
   return el('div', { class: 'stack' },
-    v.errors.length ? el('ul', { class: 'list' }, v.errors.map((e) => el('li', {}, chip('fix', 'bad'), el('span', { class: 'grow', text: `${label(e.field)}: ${e.msg}` })))) : null,
+    v.errors.length ? el('ul', { class: 'list' }, v.errors.map((e) => el('li', {}, chip('fix', 'bad'), el('span', { class: 'grow', text: `${fieldLabel(e.field)}: ${e.msg}` })))) : null,
     v.incomplete.length ? el('ul', { class: 'list' }, v.incomplete.map((m) => el('li', {}, chip('missing', 'warn'), el('span', { class: 'grow', text: m })))) : null,
     v.warnings.length ? el('ul', { class: 'list' }, v.warnings.map((w) => el('li', {}, chip('check', 'info'), el('span', { class: 'grow', text: w.msg })))) : null,
     v.ready ? el('p', { class: 'small', text: '✓ Ready for Etsy.' }) : null)
@@ -929,5 +971,15 @@ async function viewPerformance() {
       el('section', { class: 'card' }, el('h2', { text: 'Applied changes' }, ' ', tip('Same-length windows before and after each change. Correlation only — not proof the edit caused it.')), smallList(p.outcomes.slice(0, 6), (o) => el('li', {}, el('div', { class: 'grow' }, el('div', { class: 'trunc', text: o.title }), el('div', { class: 'small muted', text: `${label(o.field)} · ${date(o.applied_at)} · ${o.window_days}d: ${o.before.units} → ${o.after.units} units${o.maturing ? ' (still maturing)' : ''}` }))), 'No applied changes yet.'))))
 }
 
-window.addEventListener('hashchange', route)
+if (STATIC) {
+  // run() already showed the read-only message; don't also report it as an uncaught error.
+  window.addEventListener('unhandledrejection', (e) => e.preventDefault())
+  // In-page links like #/drafts navigate in memory; the host page only passes plain #names.
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#/"]')
+    if (!a) return
+    e.preventDefault()
+    go(a.getAttribute('href'))
+  })
+} else window.addEventListener('hashchange', route)
 route()
